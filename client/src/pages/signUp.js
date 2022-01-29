@@ -1,4 +1,5 @@
 import React from "react";
+import CreateAccountButton from "../components/createAccountButton";
 
 const SignUp = () => {
     
@@ -28,6 +29,8 @@ const SignUp = () => {
                 <label for='name'>First Name:</label>
                 <input type='text' placeholder="First Name"></input>
             </form>
+
+            <CreateAccountButton/>
         </div>
         </>
     );
