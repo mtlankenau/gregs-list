@@ -10,4 +10,4 @@ const ButtonExampleAnimated = () => (
   </div>
 )
 
-export default ButtonExampleAnimated
+export default ButtonExampleAnimated;
