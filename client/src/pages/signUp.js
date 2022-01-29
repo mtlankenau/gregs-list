@@ -1,5 +1,5 @@
 import React from "react";
-import CreateAccountButton from "../components/createAccountButton";
+import CreateAccountButton from "../components/createaccountbutton";
 
 const SignUp = () => {
     
@@ -26,11 +26,12 @@ const SignUp = () => {
                 <label for='name'>Password:</label>
                 <input type='text' placeholder="Password"></input>
 
-                <label for='name'>First Name:</label>
-                <input type='text' placeholder="First Name"></input>
             </form>
 
-            <CreateAccountButton/>
+            <CreateAccountButton
+            name="Create Account"
+            link=""
+            />
         </div>
         </>
     );

@@ -1,12 +1,15 @@
 import React from 'react';
 
-const CreateAccountButton = () => {
+export default function CreateAccountButton({ name, link }) {
 
-    return(
-        <button>
-            Create Account
-        </button>
+    return (
+        <div>
+            <a href={link}>
+                <button>
+                    {name}
+                </button>
+            </a>
+        </div>
     );
 }
 
-export default CreateAccountButton;
