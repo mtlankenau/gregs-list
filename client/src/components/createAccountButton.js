@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Icon } from 'semantic-ui-react'
 
-const ButtonExampleAnimated = () => (
+const CreateAccountButton = () => (
   <div>
     <Button animated='fade'>
       <Button.Content visible> Sign-up </Button.Content>
@@ -10,4 +10,4 @@ const ButtonExampleAnimated = () => (
   </div>
 )
 
-export default ButtonExampleAnimated;
+export default CreateAccountButton;

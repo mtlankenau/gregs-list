@@ -1,5 +1,5 @@
 import React from "react";
-import CreateAccountButton from "../components/createaccountbutton";
+import CreateAccountButton from "../components/createAccountButton";
 
 const SignUp = () => {
     

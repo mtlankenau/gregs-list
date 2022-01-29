@@ -6,13 +6,13 @@ import { Menu, Icon } from 'semantic-ui-react';
 const navBar = () => {
   return (
     <div class="ui menu">
-      <Menu.Item as={ Link } name='home' to='home'>
+      <Menu.Item as={ Link } name='home' to='/home'>
         <Icon name='home' />
       </Menu.Item>
-      <Menu.Item as={ Link } name='home' to='home'>
+      <Menu.Item as={ Link } name='home' to='/home'>
         <Icon name='home' />
       </Menu.Item>
-      <Menu.Item as={ Link } name='home' to='home'>
+      <Menu.Item as={ Link } name='home' to='/home'>
         <Icon name='home' />
       </Menu.Item>
     </div>
