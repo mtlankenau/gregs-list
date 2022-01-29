@@ -5,8 +5,8 @@ const Home = ()=> {
 
         return(
             <div>
-                Hello
-                <Navbar />
+                HelloWorld
+                {/* <Navbar /> */}
             </div>
         );
 };
