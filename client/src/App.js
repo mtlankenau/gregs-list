@@ -1,5 +1,6 @@
 import React from 'react';
 import Home from "./pages/home";
+import SignUp from './pages/signUp';
 
 import { 
   BrowserRouter as Router, 
@@ -12,20 +13,11 @@ import {
 
 function App() {
   return (
-    // <BrowseRouter>
-    //   <Header />
-    //   <Routes>
-    //     <Route
-    //       exact path="/"
-    //       element={<Home />}
-    //     />
-
-    //   </Routes>
-
-    //   <Footer />
-    // </BrowseRouter>
-
-    <Home />
+    
+        
+    <SignUp />
+    
+    
   );
 }
 
