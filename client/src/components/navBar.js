@@ -3,23 +3,23 @@ import { Link } from 'react-router-dom';
 import { Menu, Icon } from 'semantic-ui-react';
 
 
-const navBar = () => {
+const NavBar = () => {
   return (
     <div class="ui menu">
-      <Menu.Item as={ Link } name='home' to='/home'>
-        <Icon name='home' />
-      </Menu.Item>
-      <Menu.Item as={ Link } name='home' to='/home'>
-        <Icon name='home' />
-      </Menu.Item>
-      <Menu.Item as={ Link } name='home' to='/home'>
-        <Icon name='home' />
+      <Menu.Item as={ Link } to='/home'>
+        Home
+      </Menu.Item> <br/> 
+      <Menu.Item as={ Link } to='/home'>
+        Page 2
+      </Menu.Item> <br/>
+      <Menu.Item as={ Link } to='/home'>
+        Page 3
       </Menu.Item>
     </div>
   );
 }
 
-export default navBar;
+export default NavBar;
 
 
 
