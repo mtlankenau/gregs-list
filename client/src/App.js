@@ -6,18 +6,34 @@ import {
   BrowserRouter as Router, 
   Route, 
   Routes, 
-  Link, 
-  BrowseRouter 
 } from 'react-router-dom';
 
 
 function App() {
   return (
-    
-        
-    <SignUp />
-    
-    
+    <Router>
+        <Route 
+          path="/"
+          element={<Home />}
+        />
+        {/* <Route
+          path="/about"
+          element={<AboutMe/>}
+        />
+        <Route
+          path="/portfolio"
+          element={<Portfolio/>}
+        />
+        <Route
+          path="/contact"
+          element={<Contact/>}
+        />
+        <Route
+          path="/resume"
+          element={<Resume/>}
+        /> */}
+
+    </Router>
   );
 }
 
