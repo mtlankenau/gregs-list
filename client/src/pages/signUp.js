@@ -28,10 +28,7 @@ const SignUp = () => {
 
             </form>
 
-            <CreateAccountButton
-            name="Create Account"
-            link=""
-            />
+            <CreateAccountButton/>
         </div>
         </>
     );

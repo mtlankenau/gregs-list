@@ -1,15 +1,13 @@
-import React from 'react';
+import React from 'react'
+import { Button, Icon } from 'semantic-ui-react'
 
-export default function CreateAccountButton({ name, link }) {
+const ButtonExampleAnimated = () => (
+  <div>
+    <Button animated='fade'>
+      <Button.Content visible> Sign-up </Button.Content>
+      <Button.Content hidden>Free</Button.Content>
+    </Button>
+  </div>
+)
 
-    return (
-        <div>
-            <a href={link}>
-                <button>
-                    {name}
-                </button>
-            </a>
-        </div>
-    );
-}
-
+export default ButtonExampleAnimated
