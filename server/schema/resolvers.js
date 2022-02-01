@@ -41,7 +41,24 @@ const resolvers = {
     addUser: async(parents, args) => {
       const user = await User.create(args);
       const token = signToken(user);
-      return user;
+      return { token, user };
+    },
+
+    login: async(parent, { username, password }) => {
+      const user = await User.findOne({ username });
+
+      if (!user) {
+        throw new AuthenticationError('Invalid username and/or password');
+      }
+
+      const correctPw = await user.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw new AuthenticationError('Invalid username and/or password');
+      }
+
+      const token = signToken(user);
+      return { token, user };
     },
 
     addPost: async(parents, args) => {
