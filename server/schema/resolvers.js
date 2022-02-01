@@ -18,12 +18,14 @@ const resolvers = {
 
     users: async () => {
       return User.find()
-        .select('-__v -password');
+        .select('-__v -password')
+        .populate('posts');
     },
 
     user: async (parent, { username }) => {
       return User.findOne({ username })
         .select('-__v -password')
+        .populate('posts');
     },
 
     posts: async (parent, { username }) => {
