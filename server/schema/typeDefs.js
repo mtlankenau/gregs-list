@@ -52,6 +52,13 @@ const typeDefs = gql`
       lastName: String!,
       phoneNumber: String!
     ): User
+    addPost(
+      postType: String!,
+      postCategory: String!,
+      postTitle: String!,
+      postPrice: String!,
+      postDescription: String!
+    ) : Post
   }
 `;
 
