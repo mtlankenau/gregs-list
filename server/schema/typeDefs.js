@@ -47,7 +47,7 @@ const typeDefs = gql`
     posts: [Post]
     post(_id: ID!): Post
     responses: [Response]
-    response(username: String!, _id: ID!): Response
+    response(_id: ID!): Response
   }
 
   type Mutation {
@@ -66,7 +66,6 @@ const typeDefs = gql`
       postTitle: String!,
       postPrice: String!,
       postDescription: String!
-      username: String!
     ) : Post
     addResponse(postId: ID!, responseText: String): Post
   }
