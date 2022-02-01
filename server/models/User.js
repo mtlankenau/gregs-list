@@ -34,25 +34,19 @@ const userSchema = new Schema(
       type: String,
       required: true,
       trim: true
-    }
-    // thoughts: [
-    //   {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'Thought'
-    //   }
-    // ],
-    // friends: [
-    //   {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'User'
-    //   }
-    // ]
+    },
+    posts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Post'
+      }
+    ]
   },
-  // {
-  //   toJSON: {
-  //     virtuals: true
-  //   }
-  // }
+  {
+    toJSON: {
+      virtuals: true
+    }
+  }
 );
 
 // set up pre-save middleware to create password
@@ -70,9 +64,9 @@ userSchema.methods.isCorrectPassword = async function(password) {
   return bcrypt.compare(password, this.password);
 };
 
-// userSchema.virtual('friendCount').get(function() {
-//   return this.friends.length;
-// });
+userSchema.virtual('postCount').get(function() {
+  return this.posts.length;
+});
 
 const User = model('User', userSchema);
 

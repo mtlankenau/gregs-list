@@ -24,6 +24,7 @@ const typeDefs = gql`
     createdAt: String
     username: String
     responses: [Response]
+    responseCount: Int
   }
 
   type Response {
@@ -31,7 +32,7 @@ const typeDefs = gql`
     responseText: String
     username: String
     createdAt: String
-    postTitle: Post.postTitle
+    postTitle: String
   }
 
   type Query {
