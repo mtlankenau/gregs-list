@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema } = require('mongoose');
 
 const responseSchema = new Schema (
   {
@@ -15,15 +15,8 @@ const responseSchema = new Schema (
     createdAt: {
       type: Date,
       default: Date.now
-    },
-    postTitle: {
-      type: String,
-      required: true,
-      trim: true
     }
   }
 );
 
-const Response = model('Response', responseSchema);
-
-module.exports = Response;
+module.exports = responseSchema;

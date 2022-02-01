@@ -37,7 +37,6 @@ const typeDefs = gql`
     responseText: String
     username: String
     createdAt: String
-    postTitle: String
   }
 
   type Query {

@@ -76,6 +76,20 @@ const resolvers = {
 
       throw new AuthenticationError('You need to be logged in before creating a post!');
     },
+
+    addResponse: async (parent, { postId, responseText }, context) => {
+      if (context.user) {
+        const updatedPost = await Post.findOneAndUpdate(
+          { _id: postId },
+          { $push: { responses: { responseText, username: context.user.username } } },
+          { new: true, runValidators: true }
+        );
+
+        return updatedPost;
+      }
+
+      throw new AuthenticationError('You need to be logged in before responding to a post!');
+    }
   }
 };
 
