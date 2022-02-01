@@ -39,7 +39,7 @@ const typeDefs = gql`
     users: [User]
     user(username: String!): User
     posts: [Post]
-    post(username: String!, _id: ID!): Post
+    post(_id: ID!): Post
     responses: [Response]
     response(username: String!, _id: ID!): Response
   }
@@ -59,7 +59,9 @@ const typeDefs = gql`
       postTitle: String!,
       postPrice: String!,
       postDescription: String!
+      username: String!
     ) : Post
+    addResponse(postId: ID!, responseText: String): Post
   }
 `;
 

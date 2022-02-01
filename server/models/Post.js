@@ -34,7 +34,12 @@ const postSchema = new Schema(
       type: String,
       required: true
     },
-    responses: [responseSchema]
+    responses: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Response'
+      }
+    ]
   },
   {
     toJSON: {
