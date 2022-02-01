@@ -10,6 +10,28 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     phoneNumber: String
+    posts: [Post]
+    postCount: Int
+  }
+
+  type Post {
+    _id: ID
+    postType: String
+    postCategory: String
+    postTitle: String
+    postPrice: String
+    postDescription: String
+    createdAt: String
+    username: String
+    responses: [Response]
+  }
+
+  type Response {
+    _id: ID
+    responseText: String
+    username: String
+    createdAt: String
+    postTitle: Post.postTitle
   }
 
   type Query {
