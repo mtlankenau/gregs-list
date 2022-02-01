@@ -27,6 +27,11 @@ const typeDefs = gql`
     responseCount: Int
   }
 
+  type Auth {
+    token: ID!
+    user: User
+  }
+
   type Response {
     _id: ID
     responseText: String
@@ -36,6 +41,7 @@ const typeDefs = gql`
   }
 
   type Query {
+    me: User
     users: [User]
     user(username: String!): User
     posts: [Post]
@@ -45,6 +51,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
+    login(username: String!, password: String!): Auth
     addUser(
       username: String!,
       email: String!,
@@ -52,7 +59,7 @@ const typeDefs = gql`
       firstName: String!,
       lastName: String!,
       phoneNumber: String!
-    ): User
+    ): Auth
     addPost(
       postType: String!,
       postCategory: String!,
