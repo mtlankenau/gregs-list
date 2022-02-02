@@ -1,53 +1,26 @@
 {
   "name": "gregs-list",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@apollo/client": "^3.5.8",
-    "@testing-library/jest-dom": "^5.16.1",
-    "@testing-library/react": "^12.1.2",
-    "@testing-library/user-event": "^13.5.0",
-    "apollo-server-express": "^3.6.2",
-    "bcrypt": "^5.0.1",
-    "concurrently": "^7.0.0",
-    "express": "^4.17.2",
-    "faker": "^6.6.6",
-    "graphql": "^16.3.0",
-    "jsonwebtoken": "^8.5.1",
-    "jwt-decode": "^3.1.2",
-    "mongoose": "^6.1.8",
-    "nodemon": "^2.0.15",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "5.0.0",
-    "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^2.1.1",
-    "web-vitals": "^2.1.4"
-  },
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/server.js",
   "scripts": {
-    "start": "react-scripts start",
-    "develop": "concurrently \"cd server && node server.js\" \"cd client && npm start\"",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "watch": "nodemon"
+    "start": "node server/server.js",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "build": "cd client && npm run build"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mtlankenau/gregs-list.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mtlankenau/gregs-list/issues"
+  },
+  "homepage": "https://github.com/mtlankenau/gregs-list#readme",
+  "devDependencies": {
+    "concurrently": "^7.0.0"
   }
 }
