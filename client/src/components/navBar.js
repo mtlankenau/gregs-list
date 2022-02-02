@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
-import { Menu, Icon } from 'semantic-ui-react';
-import 'semantic-ui-css/semantic.min.css';
+// import { Link } from 'react-router-dom';
+// import { Menu, Icon } from 'semantic-ui-react';
+// import 'semantic-ui-css/semantic.min.css';
 
 
 const NavBar = () => {
   return (
     <div class="ui menu">
-      <Menu.Item as={ Link } to='/home'>
+      {/* <Menu.Item as={ Link } to='/home'>
         Home
       </Menu.Item> <br/> 
       <Menu.Item as={ Link } to='/home'>
@@ -15,7 +15,7 @@ const NavBar = () => {
       </Menu.Item> <br/>
       <Menu.Item as={ Link } to='/home'>
         Page 3
-      </Menu.Item>
+      </Menu.Item> */}
     </div>
   );
 }

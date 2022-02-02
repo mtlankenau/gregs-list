@@ -2,7 +2,7 @@ import React from 'react';
 import Home from "./pages/home";
 import SignUp from './pages/signUp';
 import NavBar from './components/navBar';
-import {ApolloProvider} from '@apollo/client'
+// import {ApolloProvider} from '@apollo/client'
 
 import { 
   BrowserRouter as Router, 
@@ -13,18 +13,19 @@ import {
 
 function App() {
   return (
-    <ApolloProvider>
-      <Router>
-        <Route>
-          <div>
-            <NavBar />
-            <div>
-              <Home />
-            </div>
-          </div>
-        </Route>
-      </Router>
-    </ApolloProvider>
+    <div>Hello World!</div>
+    // <ApolloProvider>
+      // <Router>
+      //   <Route>
+      //     <div>
+      //       <NavBar />
+      //       <div>
+      //         <Home />
+      //       </div>
+      //     </div>
+      //   </Route>
+      // </Router>
+    // </ApolloProvider>
   );
 }
 
