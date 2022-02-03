@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import pages
 import Home from "./pages/home";
-import SignUp from './pages/signUp';
+import Signup from './pages/signup';
 import Login from './pages/login';
 
 // import components
@@ -18,11 +18,11 @@ function App() {
       <Router>
         <NavBar/>
           <Switch>
-            <Route exact path='/' component={Home} />
+            <Route exact path='/' component={Home}/>
             <Route exact path='/login' component={Login}/>
-            <Route exact path='/signup' component={SignUp} />
+            <Route exact path='/signup' component={Signup}/>
           </Switch>
-        <Footer />
+        <Footer/>
       </Router>
     </ChakraProvider>
   );

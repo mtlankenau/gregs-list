@@ -7,18 +7,14 @@ const NavBar = () => {
         <Box>
           <Stack spacing={8} justify='center' align='center' isInline>
             <Button position='relative' variant='outline'>
-              <Link href='/home'>
-                <a>home</a>
-              </Link>
+              <Link href='/home'>Home</Link>
             </Button>
             <Button position='relative' variant='outline' >
-              <Link  href='/logIn'  >
-                <a>logIn</a>
-              </Link>
+              <Link  href='/login'>Login</Link>
             </Button>
             <Button position='relative' variant='outline'>
-              <Link href='/signUp'>
-                <a>signup</a>
+              <Link href='/signup'>
+                Signup
               </Link>
             </Button>
           </Stack>

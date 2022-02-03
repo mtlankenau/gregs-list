@@ -1,10 +1,29 @@
 import React from 'react';
+import { Box, Flex, Stack, Center, Link, Icon } from '@chakra-ui/react';
+import { FaGithub } from 'react-icons/fa'
 
 const Footer = () => {
+
+  const creators = [
+    { name: "Michael Lankenau", github: "https://github.com/mtlankenau" },
+    { name: "Brendan Lewis", github: "https://github.com/brendanjflewis" },
+    { name: "Jordan Yanev", github: "https://github.com/jyanev01" },
+    { name: "Daniel Wilkinson", github: "https://github.com/DanWilk" }
+  ];
+
   return (
-    <footer>
-      <div>@copy;2022 by Michael Lankenau, Brendan Lewis, Jordan Yanev, and Daniel Wilkinson</div>
-    </footer>
+    <Flex justify='space-around'>
+      <Box>
+      <Center>&copy;2022 Created By:</Center>
+        <Stack spacing={8} justify='center' align='center' isInline>
+          {creators.map((creator) => (
+              <Link href={creator.github} key={creator.name}>
+                <Icon as={FaGithub} />{creator.name}
+              </Link>
+          ))}
+        </Stack>
+      </Box>
+    </Flex>
   );
 };
 

@@ -33,7 +33,7 @@ const Login = () => {
           />
         </InputGroup>
         <Button boxShadow='md' _active={{ boxShadow: 'lg' }}>
-          <a>Login</a>
+          Login
         </Button>
         <FormHelperText id='email-helper-text' textAlign='center'>
           Welcome back!
