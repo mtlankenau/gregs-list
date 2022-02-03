@@ -17,7 +17,7 @@ const Footer = () => {
       <Center>&copy;2022 Created By:</Center>
         <Stack spacing={8} justify='center' align='center' isInline>
           {creators.map((creator) => (
-              <Link href={creator.github} key={creator.name}>
+              <Link href={creator.github} target='_blank' key={creator.name}>
                 <Icon as={FaGithub} />{creator.name}
               </Link>
           ))}
