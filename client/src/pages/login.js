@@ -1,28 +1,31 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
 import {InputGroup,
-	InputLeftAddon,
-	Icon,
+  InputLeftElement,
 	Input,
 	FormControl,
 	FormHelperText,
 	Stack,
 	Button} from '@chakra-ui/react';
+import { SearchIcon, LockIcon } from '@chakra-ui/icons';
   
-const LogInForm = () => {
+const Login = () => {
   return (
     <FormControl textAlign='center'>
       <Stack spacing={3} m={3}>
         <InputGroup>
-          <InputLeftAddon children={<Icon name='email' color='gray.500' />} />
+          <InputLeftElement
+            pointerEvents='none'
+            children={<SearchIcon name='username' color='gray.500' />} />
           <Input
-            type='email'
-            placeholder='Email'
-            aria-label='Email input field'
+            type='username'
+            placeholder='Username'
+            aria-label='Username input field'
           />
         </InputGroup>
         <InputGroup>
-          <InputLeftAddon children={<Icon name='lock' color='gray.500' />} />
+          <InputLeftElement
+            pointerEvents='none'
+            children={<LockIcon name='lock' color='gray.500' />} />
           <Input
             type='password'
             placeholder='Password'
@@ -40,6 +43,6 @@ const LogInForm = () => {
       </Stack>
     </FormControl>
   );
-}
+};
 
-export default LogInForm;
+export default Login;
