@@ -1,39 +1,45 @@
 import React from 'react'
-// import { Link } from 'react-router-dom';
-// import { Button, Divider, Form, Grid, Segment } from 'semantic-ui-react'
-
-const LogInForm = () => (
-  <div></div>
-  // <Segment placeholder>
-  //   <Grid columns={2} relaxed='very' stackable>
-  //     <Grid.Column>
-  //       <Form>
-  //         <Form.Input
-  //           icon='user'
-  //           iconPosition='left'
-  //           label='Username'
-  //           placeholder='Username'
-  //         />
-  //         <Form.Input
-  //           icon='lock'
-  //           iconPosition='left'
-  //           label='Password'
-  //           type='password'
-  //         />
-
-  //         <Button content='Login' primary />
-  //       </Form>
-  //     </Grid.Column>
-
-  //     <Grid.Column verticalAlign='middle'>
-  //       <Link to="/createaccount">
-  //       <Button content='Sign up' icon='signup' size='big' />
-  //       </Link>
-  //     </Grid.Column>
-  //   </Grid>
-
-  //   <Divider vertical>Or</Divider>
-  // </Segment>
-)
+import { Link } from 'react-router-dom';
+import {InputGroup,
+	InputLeftAddon,
+	Icon,
+	Input,
+	FormControl,
+	FormHelperText,
+	Stack,
+	Button} from '@chakra-ui/react';
+  
+const LogInForm = () => {
+  return (
+    <FormControl textAlign='center'>
+      <Stack spacing={3} m={3}>
+        <InputGroup>
+          <InputLeftAddon children={<Icon name='email' color='gray.500' />} />
+          <Input
+            type='email'
+            placeholder='Email'
+            aria-label='Email input field'
+          />
+        </InputGroup>
+        <InputGroup>
+          <InputLeftAddon children={<Icon name='lock' color='gray.500' />} />
+          <Input
+            type='password'
+            placeholder='Password'
+            aria-label='Password input field'
+          />
+        </InputGroup>
+        <Button boxShadow='md' _active={{ boxShadow: 'lg' }}>
+          <a>Login</a>
+        </Button>
+        <FormHelperText id='email-helper-text' textAlign='center'>
+          Welcome back!
+          <br />
+          🏠
+        </FormHelperText>
+      </Stack>
+    </FormControl>
+  );
+}
 
 export default LogInForm;

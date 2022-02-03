@@ -1,32 +1,30 @@
 import React from 'react';
 import { Box, Flex, Stack, Button, Link } from '@chakra-ui/react';
-// import { Link } from 'react-router-dom';
-// import { Menu, Icon } from 'semantic-ui-react';
-// import 'semantic-ui-css/semantic.min.css';
+import {Link as ReachLink} from '@reach/router';
 
 const NavBar = () => {
   return (
-    <Flex justify='space-around'>
-      <Box>
-        <Stack spacing={8} justify='center' align='center' isInline>
-          <Button position='relative' variant='outline'>
-            <Link href='/'>
-              <a>home</a>
-            </Link>
-          </Button>
-          <Button position='relative' variant='outline' href='/'>
-            <Link href='/'>
-              <a>login</a>
-            </Link>
-          </Button>
-          <Button position='relative' variant='outline'>
-            <Link href='/'>
-              <a>signup</a>
-            </Link>
-          </Button>
-        </Stack>
-      </Box>
-    </Flex>
+     <Flex justify='space-around'>
+        <Box>
+          <Stack spacing={8} justify='center' align='center' isInline>
+            <Button position='relative' variant='outline'>
+              <Link href='/home'>
+                <a>home</a>
+              </Link>
+            </Button>
+            <Button position='relative' variant='outline' >
+              <Link  href='/logIn'  >
+                <a>logIn</a>
+              </Link>
+            </Button>
+            <Button position='relative' variant='outline'>
+              <Link href='/signUp'>
+                <a>signup</a>
+              </Link>
+            </Button>
+          </Stack>
+        </Box>
+      </Flex>
   );
 }
 
