@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box, Flex, Stack, Button, Link } from '@chakra-ui/react';
-import {Link as ReachLink} from '@reach/router';
 
 const NavBar = () => {
   return (
