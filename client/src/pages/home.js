@@ -4,7 +4,7 @@ import { Container, Box, Flex, Spacer, Wrap, Text, Stack, Button, Accordion, Acc
 const Home = ()=> {
 
         return(
-            <Container maxW='90%' centerContent>
+            <Container maxW='90%'>
                 {/* Image and title for Greg's List will go here */}
                 <Box 
                     w='400px'
@@ -24,7 +24,7 @@ const Home = ()=> {
                                     bg='white' 
                                     w='100%'
                                     pt={8}
-                                    pb={8} 
+                                    pb={8}
                                     >Jobs
                                 </Box>
                                 <AccordionIcon />
