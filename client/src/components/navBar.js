@@ -1,22 +1,25 @@
-import React, {Component} from 'react';
-// import { Link } from 'react-router-dom';
-// import { Menu, Icon } from 'semantic-ui-react';
-// import 'semantic-ui-css/semantic.min.css';
-
+import React from 'react';
+import { Box, Flex, Stack, Button, Link } from '@chakra-ui/react';
 
 const NavBar = () => {
   return (
-    <div class="ui menu">
-      {/* <Menu.Item as={ Link } to='/home'>
-        Home
-      </Menu.Item> <br/> 
-      <Menu.Item as={ Link } to='/home'>
-        Page 2
-      </Menu.Item> <br/>
-      <Menu.Item as={ Link } to='/home'>
-        Page 3
-      </Menu.Item> */}
-    </div>
+     <Flex justify='space-around'>
+        <Box>
+          <Stack spacing={8} justify='center' align='center' isInline>
+            <Button position='relative' variant='outline'>
+              <Link href='/home'>Home</Link>
+            </Button>
+            <Button position='relative' variant='outline' >
+              <Link  href='/login'>Login</Link>
+            </Button>
+            <Button position='relative' variant='outline'>
+              <Link href='/signup'>
+                Signup
+              </Link>
+            </Button>
+          </Stack>
+        </Box>
+      </Flex>
   );
 }
 
@@ -24,6 +27,39 @@ export default NavBar;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////
+////////////////////////////
+// OLD CODE // CAN IGNORE //
+////////////////////////////
+
+// const NavBar = () => {
+//   return (
+//     <div class="ui menu">
+//       {/* <Menu.Item as={ Link } to='/home'>
+//         Home
+//       </Menu.Item> <br/> 
+//       <Menu.Item as={ Link } to='/home'>
+//         Page 2
+//       </Menu.Item> <br/>
+//       <Menu.Item as={ Link } to='/home'>
+//         Page 3
+//       </Menu.Item> */}
+//     </div>
+//   );
+// }
 
 // import React from 'react';
 // import { NavLink } from 'react-router-dom';

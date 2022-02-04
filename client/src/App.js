@@ -1,31 +1,30 @@
 import React from 'react';
+import {BrowserRouter as Router, Switch, Route } from "react-router-dom";
+// import pages
 import Home from "./pages/home";
-import SignUp from './pages/signUp';
+import Signup from './pages/signup';
+import Login from './pages/login';
+
+// import components
 import NavBar from './components/navBar';
-// import {ApolloProvider} from '@apollo/client'
+import Footer from './components/footer';
 
-import { 
-  BrowserRouter as Router, 
-  Route, 
-  BrowserRouter
-} from 'react-router-dom';
-
+// import chakra CSS framework components
+import { ChakraProvider } from '@chakra-ui/react';
 
 function App() {
   return (
-    <div>Hello World!</div>
-    // <ApolloProvider>
-      // <Router>
-      //   <Route>
-      //     <div>
-      //       <NavBar />
-      //       <div>
-      //         <Home />
-      //       </div>
-      //     </div>
-      //   </Route>
-      // </Router>
-    // </ApolloProvider>
+    <ChakraProvider>
+      <Router>
+        <NavBar/>
+          <Switch>
+            <Route exact path='/' component={Home}/>
+            <Route exact path='/login' component={Login}/>
+            <Route exact path='/signup' component={Signup}/>
+          </Switch>
+        <Footer/>
+      </Router>
+    </ChakraProvider>
   );
 }
 
