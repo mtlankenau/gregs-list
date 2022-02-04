@@ -14,17 +14,17 @@ import Footer from './components/footer';
 import { ChakraProvider } from '@chakra-ui/react';
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(
-    // initial value
-    document.cookie.split(';').some((item) => item.trim().startsWith('loggedIn='));
-  )
+  // const [loggedIn, setLoggedIn] = useState(
+  //   // initial value
+  //   document.cookie.split(';').some((item) => item.trim().startsWith('loggedIn='));
+  // )
   return (
     <ChakraProvider classname="App">
       <Router>
-        <NavBar {...{loggedIn}}/>
+        <NavBar/>
           <Switch>
             <Route exact path='/home' component={Home}/>
-            <Route exact path='/login' render={(routeProps) => <LogIn {...{setLoggedIn, ...routeProps}}/>
+            <Route exact path='/login' component={Login}/>
             <Route exact path='/signup' component={Signup}/>
             <Route exact path='/createJob' component={createJob}/>
           </Switch>

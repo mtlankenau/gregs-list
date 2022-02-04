@@ -13,7 +13,7 @@ const Footer = () => {
 
   return (
     <Flex justify='space-around'>
-      <Box>
+      <Box pt={8}>
       <Center>&copy;2022 Created By:</Center>
         <Stack spacing={8} justify='center' align='center' isInline>
           {creators.map((creator) => (
