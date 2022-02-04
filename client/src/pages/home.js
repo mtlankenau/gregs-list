@@ -16,6 +16,8 @@ const Home = ()=> {
                     color='black'>This is the box that has a picture and G R E G ' S   L I S T
                 </Box>
 
+
+                {/* JOBS SECTION */}
                 <Accordion allowToggle>
                     <AccordionItem>
                         <h2>
@@ -105,7 +107,7 @@ const Home = ()=> {
                     </AccordionItem>
                 </Accordion>
 
-
+                {/* GIGS SECTION */}
                 <Accordion allowToggle>
                     <AccordionItem>
                         <h2>
