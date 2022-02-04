@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Flex, Stack, Button, Link } from '@chakra-ui/react';
+import Auth from '../utils/auth';
 
 const NavBar = () => {
   return (
@@ -7,6 +8,30 @@ const NavBar = () => {
         <Box>
           <Stack spacing={8} justify='center' align='center' isInline>
             <Button position='relative' variant='outline'>
+                <Link href='/home'>Home</Link>
+            </Button>
+            {Auth.loggedIn() ? (
+              <>
+              <Button position='relative' variant='outline' >
+                <Link  href='/profile'>Profile</Link>
+              </Button>
+              <Button position='relative' variant='outline' >
+                <Link  href='/'>Logout</Link>
+              </Button>
+              </>
+            ) : (
+              <>
+              <Button position='relative' variant='outline' >
+                <Link  href='/login'>Login</Link>
+              </Button>
+                <Button position='relative' variant='outline'>
+                  <Link href='/signup'>
+                    Signup
+                  </Link>
+              </Button>
+              </>
+            )}
+            {/* <Button position='relative' variant='outline'>
               <Link href='/home'>Home</Link>
             </Button>
             <Button position='relative' variant='outline' >
@@ -16,7 +41,7 @@ const NavBar = () => {
               <Link href='/signup'>
                 Signup
               </Link>
-            </Button>
+            </Button> */}
           </Stack>
         </Box>
       </Flex>
