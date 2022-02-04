@@ -67,6 +67,7 @@ const typeDefs = gql`
       postDescription: String!
     ) : Post
     addResponse(postId: ID!, responseText: String): Post
+    deletePost(postId: ID!): Post
   }
 `;
 
