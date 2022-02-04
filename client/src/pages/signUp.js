@@ -20,7 +20,7 @@ const formData = [
 const Signup = () => {
   return (
     <FormControl textAlign='center'>
-      <Stack spacing={3} m={3}>
+      <Stack spacing={3} m={3} ml={350} mr={350}>
         {formData.map((item) => (
           <InputGroup key={item.name}>
             <InputLeftElement

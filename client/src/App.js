@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import pages
 import Home from "./pages/home";
-import Signup from './pages/signup';
+import Signup from './pages/signUp';
 import Login from './pages/login';
 
 // import components
@@ -18,7 +18,7 @@ function App() {
       <Router>
         <NavBar/>
           <Switch>
-            <Route exact path='/' component={Home}/>
+            <Route exact path='/home' component={Home}/>
             <Route exact path='/login' component={Login}/>
             <Route exact path='/signup' component={Signup}/>
           </Switch>
