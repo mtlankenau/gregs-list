@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
@@ -37,7 +37,7 @@ const client = new ApolloClient({
 function App() {
   const [loggedIn, setLoggedIn] = useState(
     // initial value
-    document.cookie.split(';').some((item) => item.trim().startsWith('loggedIn='));
+    document.cookie.split(';').some((item) => item.trim().startsWith('loggedIn=')));
   
   return (
     <ApolloProvider client={client}>
