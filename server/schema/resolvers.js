@@ -97,8 +97,8 @@ const resolvers = {
       if(context.user) {
       const deletedPost = await Post.findOneAndDelete({_id: postId});
       const updatedUser = await User.findOneAndUpdate(
-           {_id: context.user.id},
-           {$pull: { posts: postId }},
+          {_id: context.user.id},
+          {$pull: { posts: postId }},
           {new: true}
       );
   
