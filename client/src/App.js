@@ -11,7 +11,7 @@ import NavBar from './components/navBar';
 import Footer from './components/footer';
 
 // import chakra CSS framework components
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, Container } from '@chakra-ui/react';
 
 function App() {
   // const [loggedIn, setLoggedIn] = useState(
@@ -21,14 +21,17 @@ function App() {
   return (
     <ChakraProvider classname="App">
       <Router>
-        <NavBar/>
-          <Switch>
-            <Route exact path='/home' component={Home}/>
-            <Route exact path='/login' component={Login}/>
-            <Route exact path='/signup' component={Signup}/>
-            <Route exact path='/createJob' component={createJob}/>
-          </Switch>
-        <Footer/>
+        <Container maxW='100%' >
+          <NavBar/>
+            <Switch>
+              <Route exact path='/home' component={Home}/>
+              <Route exact path='/login' component={Login}/>
+              <Route exact path='/signup' component={Signup}/>
+              <Route exact path='/createJob' component={createJob}/>
+            </Switch>
+            
+          <Footer />
+        </Container>
       </Router>
     </ChakraProvider>
   );

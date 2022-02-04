@@ -4,7 +4,7 @@ import { Box, Flex, Stack, Button, Link } from '@chakra-ui/react';
 const NavBar = () => {
   return (
      <Flex justify='space-around'>
-        <Box>
+        <Box pb={8}>
           <Stack spacing={8} justify='center' align='center' isInline>
             <Button position='relative' variant='outline'>
               <Link href='/home'>Home</Link>
