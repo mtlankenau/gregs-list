@@ -7,7 +7,7 @@ const Home = ()=> {
 
         return(
             <Container minW='100%' minH='100%'>
-                {/* Image and title for Greg's List will go here */}
+                {/* Image and title for Greg's List will go here and grabbed this code from the site out of curiosity */}
                 {/* <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }}>
                     <Flex p={8} flex={1} align={'center'} justify={'center'}>
                         <Stack spacing={6} w={'full'} maxW={'lg'}>

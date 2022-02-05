@@ -1,13 +1,38 @@
 import React, { Component } from 'react';
 import { Box, Flex, Stack, Button, Link } from '@chakra-ui/react';
+import Auth from '../utils/auth';
 
 const NavBar = () => {
   return (
      <Flex justify='space-around'>
         <Box pb={8}>
           <Stack spacing={8} justify='center' align='center' isInline>
-            <Button as={Link} href='/home' position='relative' variant='outline'>
-              Home
+            <Button position='relative' variant='outline'>
+                <Link href='/home'>Home</Link>
+            </Button>
+            {Auth.loggedIn() ? (
+              <>
+              <Button position='relative' variant='outline' >
+                <Link  href='/profile'>Profile</Link>
+              </Button>
+              <Button position='relative' variant='outline' >
+                <Link  href='/'>Logout</Link>
+              </Button>
+              </>
+            ) : (
+              <>
+              <Button position='relative' variant='outline' >
+                <Link  href='/login'>Login</Link>
+              </Button>
+                <Button position='relative' variant='outline'>
+                  <Link href='/signup'>
+                    Signup
+                  </Link>
+              </Button>
+              </>
+            )}
+            {/* <Button position='relative' variant='outline'>
+              <Link href='/home'>Home</Link>
             </Button>
             <Button as={Link} href='/createJob' position='relative' variant='outline'>
                 Post Job
@@ -21,6 +46,8 @@ const NavBar = () => {
             <Button as={Link} href='/profile' position='relative' variant='outline'>
                 Profile
             </Button>
+              </Link>
+            </Button> */}
           </Stack>
         </Box>
       </Flex>
