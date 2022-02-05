@@ -1,24 +1,31 @@
 import React from "react";
-import { Container, Box, Flex, Spacer, Wrap, Text, Stack, Button, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon } from '@chakra-ui/react'
+import { Container, Box, Link, Flex, Spacer, Wrap, Text, Stack, Button, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon } from '@chakra-ui/react'
+import ButtonAnimated from "../components/buttonAnimated";
 
 const Home = ()=> {
 
         return(
-            <Container maxW='90%'>
+            <Container minW='100%' minH='100%'>
                 {/* Image and title for Greg's List will go here */}
                 <Box 
-                    w='400px'
-                    bg='grey'
+                    h='200px'
+                    bg='green.200'
                     rounded='5px' 
                     boxShadow='sm' 
                     w='100%'
-                    p={4} 
-                    color='black'>This is the box that has a picture and G R E G ' S   L I S T
+                    p={8} 
+                    color='black' align='center'>This is the box that has a picture and G R E G ' S   L I S T
+                </Box> 
+
+                {/* CREATE JOB BUTTON AND OPTION FOR LOGGEDIN USERS */}
+                <Box rounded='5px' h='100px' w='100%'>
+                    <Stack >
+                        <Box align='center'>Interested in posting a job or gig? Create a post and contribute to the Greg's List communmity!</Box>
+                        <Button as={Link} href='/create-job'>Post job</Button>
+                    </Stack>
                 </Box>
-
-
                 {/* JOBS SECTION */}
-                <Accordion allowToggle>
+                <Accordion allowToggle rounded='5px' >
                     <AccordionItem>
                         <h2>
                             <AccordionButton>

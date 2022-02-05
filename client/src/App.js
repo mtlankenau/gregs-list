@@ -21,7 +21,7 @@ function App() {
   return (
     <ChakraProvider classname="App">
       <Router>
-        <Container maxW='100%' >
+        <Container minW='100%' >
           <NavBar/>
             <Switch>
               <Route exact path='/home' component={Home}/>
