@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Box, Link, Flex, Spacer, Wrap, Text, Stack, Button, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon } from '@chakra-ui/react'
 import ButtonAnimated from "../components/buttonAnimated";
+import CreateJob from "./create-job";
 
 const Home = ()=> {
 
@@ -21,7 +22,7 @@ const Home = ()=> {
                 <Box rounded='5px' h='100px' w='100%'>
                     <Stack >
                         <Box align='center'>Interested in posting a job or gig? Create a post and contribute to the Greg's List communmity!</Box>
-                        <Button as={Link} href='/create-job'>Post job</Button>
+                        <Button as={Link} href='/createJob'>Post job</Button>
                     </Stack>
                 </Box>
                 {/* JOBS SECTION */}
@@ -55,7 +56,7 @@ const Home = ()=> {
                                         <Text fontWeight='light' fontSize='md'>
                                             Local music lessons from the people within your community. Video lessons are also available!
                                         </Text>
-                                        <Button variant='outline' bgColor='green.200' size='md' mt={3} >Find</Button>
+                                        <Button as={Link} href='/jobCat' variant='outline' bgColor='green.200' size='md' mt={3} >Find</Button>
                                     </Box> 
                                 </Box>
                                 <Box

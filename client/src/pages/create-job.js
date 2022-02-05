@@ -17,7 +17,7 @@ const formData = [
 ];
 
 
-export default function createJob () {
+export default function CreateJob () {
 
         return(
             <FormControl textAlign='center'>

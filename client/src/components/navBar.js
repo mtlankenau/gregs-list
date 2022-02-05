@@ -9,11 +9,17 @@ const NavBar = () => {
             <Button as={Link} href='/home' position='relative' variant='outline'>
               Home
             </Button>
+            <Button as={Link} href='/createJob' position='relative' variant='outline'>
+                Post Job
+            </Button>
             <Button as={Link} href='/login' position='relative' variant='outline' >
               Login
             </Button>
             <Button as={Link} href='/signup' position='relative' variant='outline'>
                 Signup
+            </Button>
+            <Button as={Link} href='/profile' position='relative' variant='outline'>
+                Profile
             </Button>
           </Stack>
         </Box>
