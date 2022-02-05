@@ -1,22 +1,61 @@
-import React, {Component} from 'react';
-// import { Link } from 'react-router-dom';
-// import { Menu, Icon } from 'semantic-ui-react';
-// import 'semantic-ui-css/semantic.min.css';
-
+import React, { Component } from 'react';
+import { Box, Flex, Stack, Button, Link } from '@chakra-ui/react';
+import Auth from '../utils/auth';
 
 const NavBar = () => {
+  const logout = event => {
+    event.preventDefault();
+    Auth.logout();
+  };
+  
   return (
-    <div class="ui menu">
-      {/* <Menu.Item as={ Link } to='/home'>
-        Home
-      </Menu.Item> <br/> 
-      <Menu.Item as={ Link } to='/home'>
-        Page 2
-      </Menu.Item> <br/>
-      <Menu.Item as={ Link } to='/home'>
-        Page 3
-      </Menu.Item> */}
-    </div>
+     <Flex justify='space-around'>
+        <Box pb={8}>
+          <Stack spacing={8} justify='center' align='center' isInline>
+            <Button position='relative' variant='outline'>
+                <Link href='/'>Home</Link>
+            </Button>
+            {Auth.loggedIn() ? (
+              <>
+              <Button position='relative' variant='outline' >
+                <Link  href='/profile'>Profile</Link>
+              </Button>
+              <Button position='relative' variant='outline' >
+                <Link  href='/' onClick={logout}>Logout</Link>
+              </Button>
+              </>
+            ) : (
+              <>
+              <Button position='relative' variant='outline' >
+                <Link  href='/login'>Login</Link>
+              </Button>
+                <Button position='relative' variant='outline'>
+                  <Link href='/signup'>
+                    Signup
+                  </Link>
+              </Button>
+              </>
+            )}
+            {/* <Button position='relative' variant='outline'>
+              <Link href='/home'>Home</Link>
+            </Button>
+            <Button as={Link} href='/createJob' position='relative' variant='outline'>
+                Post Job
+            </Button>
+            <Button as={Link} href='/login' position='relative' variant='outline' >
+              Login
+            </Button>
+            <Button as={Link} href='/signup' position='relative' variant='outline'>
+                Signup
+            </Button>
+            <Button as={Link} href='/profile' position='relative' variant='outline'>
+                Profile
+            </Button>
+              </Link>
+            </Button> */}
+          </Stack>
+        </Box>
+      </Flex>
   );
 }
 
@@ -24,6 +63,39 @@ export default NavBar;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////
+////////////////////////////
+// OLD CODE // CAN IGNORE //
+////////////////////////////
+
+// const NavBar = () => {
+//   return (
+//     <div class="ui menu">
+//       {/* <Menu.Item as={ Link } to='/home'>
+//         Home
+//       </Menu.Item> <br/> 
+//       <Menu.Item as={ Link } to='/home'>
+//         Page 2
+//       </Menu.Item> <br/>
+//       <Menu.Item as={ Link } to='/home'>
+//         Page 3
+//       </Menu.Item> */}
+//     </div>
+//   );
+// }
 
 // import React from 'react';
 // import { NavLink } from 'react-router-dom';
