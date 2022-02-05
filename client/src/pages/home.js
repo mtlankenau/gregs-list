@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Box, Link, Flex, Spacer, Wrap, Text, Stack, Button, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Heading, Image, useBreakpointValue } from '@chakra-ui/react'
 import ButtonAnimated from "../components/buttonAnimated";
 import CreateJob from "./create-job";
+import Auth from "../utils/auth";
 
 const Home = ()=> {
 
@@ -71,12 +72,14 @@ const Home = ()=> {
                 </Box> 
 
                 {/* CREATE JOB BUTTON AND OPTION FOR LOGGEDIN USERS */}
-                <Box rounded='5px' h='100px' w='100%'>
-                    <Stack >
-                        <Box align='center'>Interested in posting a job or gig? Create a post and contribute to the Greg's List communmity!</Box>
-                        <Button as={Link} href='/createJob'>Post job</Button>
-                    </Stack>
-                </Box>
+                {Auth.loggedIn() &&
+                    <Box rounded='5px' h='100px' w='100%'>
+                        <Stack >
+                            <Box align='center'>Interested in posting a job or gig? Create a post and contribute to the Greg's List communmity!</Box>
+                            <Button as={Link} href='/createJob'>Post job</Button>
+                        </Stack>
+                    </Box>
+                }
                 {/* JOBS SECTION */}
                 <Accordion allowToggle rounded='5px' >
                     <AccordionItem>
@@ -102,7 +105,7 @@ const Home = ()=> {
                                     bg='gray.200'>
                                     
                                     <Box p={5}>
-                                        <Stack inInLine align='baseline'>
+                                        <Stack isInline align='baseline'>
                                             <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>Music Lessons</Text>
                                         </Stack>
                                         <Text fontWeight='light' fontSize='md'>
@@ -119,7 +122,7 @@ const Home = ()=> {
                                     bg='gray.200'>
                                     
                                     <Box p={5}>
-                                        <Stack inInLine align='baseline'>
+                                        <Stack isInline align='baseline'>
                                             <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>Art Lessons</Text>
                                         </Stack>
                                         <Text fontWeight='light' fontSize='md'>
@@ -136,7 +139,7 @@ const Home = ()=> {
                                     bg='gray.200'>
                                     
                                     <Box p={5}>
-                                        <Stack inInLine align='baseline'>
+                                        <Stack isInline align='baseline'>
                                             <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>Garden</Text>
                                         </Stack>
                                         <Text fontWeight='light' fontSize='md'>
@@ -153,7 +156,7 @@ const Home = ()=> {
                                     bg='gray.200'>
                                     
                                     <Box p={5}>
-                                        <Stack inInLine align='baseline'>
+                                        <Stack isInline align='baseline'>
                                             <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>Website Design</Text>
                                         </Stack>
                                         <Text fontWeight='light' fontSize='md'>
@@ -192,7 +195,7 @@ const Home = ()=> {
                                     bg='gray.200'>
                                     
                                     <Box p={5}>
-                                        <Stack inInLine align='baseline'>
+                                        <Stack isInline align='baseline'>
                                             <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>Music Lessons</Text>
                                         </Stack>
                                         <Text fontWeight='light' fontSize='md'>
@@ -209,7 +212,7 @@ const Home = ()=> {
                                     bg='gray.200'>
                                     
                                     <Box p={5}>
-                                        <Stack inInLine align='baseline'>
+                                        <Stack isInline align='baseline'>
                                             <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>Art Lessons</Text>
                                         </Stack>
                                         <Text fontWeight='light' fontSize='md'>
@@ -226,7 +229,7 @@ const Home = ()=> {
                                     bg='gray.200'>
                                     
                                     <Box p={5}>
-                                        <Stack inInLine align='baseline'>
+                                        <Stack isInline align='baseline'>
                                             <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>Garden</Text>
                                         </Stack>
                                         <Text fontWeight='light' fontSize='md'>
@@ -243,7 +246,7 @@ const Home = ()=> {
                                     bg='gray.200'>
                                     
                                     <Box p={5}>
-                                        <Stack inInLine align='baseline'>
+                                        <Stack isInline align='baseline'>
                                             <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>Website Design</Text>
                                         </Stack>
                                         <Text fontWeight='light' fontSize='md'>
