@@ -17,33 +17,32 @@ const formData = [
 ];
 
 
+export default function CreateJob() {
 
-export default function createJob () {
+  return (
+    <FormControl textAlign='center'>
+      <Stack spacing={3} m={3} ml={250} mr={250}>
+        {formData.map((item) => (
+          <InputGroup key={item.name}>
+            <InputLeftElement
+              pointerEvents='none'
+              children={<Icon as={item.icon} name={item.name} color='gray.500' />}
+            />
+            <Input
+              type={item.name}
+              placeholder={item.name}
+              aria-label={item.name}
+            />
 
-        return(
-            <FormControl textAlign='center'>
-            <Stack spacing={3} m={3} ml={250} mr={250}>
-              {formData.map((item) => (
-                <InputGroup key={item.name}>
-                  <InputLeftElement
-                    pointerEvents='none'
-                    children={<Icon as={item.icon} name={item.name} color='gray.500' />}
-                  />
-                  <Input
-                    type={item.name}
-                    placeholder={item.name}
-                    aria-label={item.name}
-                  />
-                      
-                </InputGroup>
-              ))}
-              <Textarea placeholder='Description' />
-              <Button boxShadow='md' _active={{ boxShadow: 'lg' }}>
-                Post!
-              </Button>
-            </Stack>
-          </FormControl>
-      
-           
-        );
+          </InputGroup>
+        ))}
+        <Textarea placeholder='Description' />
+        <Button boxShadow='md' _active={{ boxShadow: 'lg' }}>
+          Post!
+        </Button>
+      </Stack>
+    </FormControl>
+
+
+  );
 }
