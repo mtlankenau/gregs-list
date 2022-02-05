@@ -6,16 +6,14 @@ const NavBar = () => {
      <Flex justify='space-around'>
         <Box pb={8}>
           <Stack spacing={8} justify='center' align='center' isInline>
-            <Button position='relative' variant='outline'>
-              <Link href='/home'>Home</Link>
+            <Button as={Link} href='/home' position='relative' variant='outline'>
+              Home
             </Button>
-            <Button position='relative' variant='outline' >
-              <Link  href='/login'>Login</Link>
+            <Button as={Link} href='/login' position='relative' variant='outline' >
+              Login
             </Button>
-            <Button position='relative' variant='outline'>
-              <Link href='/signup'>
+            <Button as={Link} href='/signup' position='relative' variant='outline'>
                 Signup
-              </Link>
             </Button>
           </Stack>
         </Box>
