@@ -18,7 +18,7 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: true,
-      minlength: 5
+      minlength: 5,
     },
     firstName: {
       type: String,
@@ -33,7 +33,8 @@ const userSchema = new Schema(
     phoneNumber: {
       type: String,
       required: true,
-      trim: true
+      trim: true,
+      match: [/^(\([0-9]{3}\)|[0-9]{3}-)[0-9]{3}-[0-9]{4}$/, 'Must match phone number!']
     },
     posts: [
       {
