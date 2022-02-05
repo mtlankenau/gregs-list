@@ -3,6 +3,11 @@ import { Box, Flex, Stack, Button, Link } from '@chakra-ui/react';
 import Auth from '../utils/auth';
 
 const NavBar = () => {
+  const logout = event => {
+    event.preventDefault();
+    Auth.logout();
+  };
+  
   return (
      <Flex justify='space-around'>
         <Box pb={8}>
@@ -16,7 +21,7 @@ const NavBar = () => {
                 <Link  href='/profile'>Profile</Link>
               </Button>
               <Button position='relative' variant='outline' >
-                <Link  href='/'>Logout</Link>
+                <Link  href='/' onClick={logout}>Logout</Link>
               </Button>
               </>
             ) : (
