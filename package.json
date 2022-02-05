@@ -22,5 +22,15 @@
   "homepage": "https://github.com/mtlankenau/gregs-list#readme",
   "devDependencies": {
     "concurrently": "^7.0.0"
+  },
+  "dependencies": {
+    "@chakra-ui/icons": "^1.1.1",
+    "@chakra-ui/react": "^1.8.1",
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "@reach/router": "^1.3.4",
+    "framer-motion": "^5.6.0",
+    "gatsby-plugin-smoothscroll": "^1.2.0",
+    "react-icons": "^4.3.1"
   }
 }
