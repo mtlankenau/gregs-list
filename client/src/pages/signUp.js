@@ -34,19 +34,26 @@ const Signup = () => {
   const [addUser, { error }] = useMutation(ADD_USER);
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
-    console.log(name);
-    console.log(value);
+    let { name, value } = event.target;
+    // console.log(name);
+    // console.log(value);
     setSignUp({
       ...signUp,
       [name]: value,
     });
-    console.log(signUp);
-  }; 
+    // if (name === 'phoneNumber') {
+    //   setSignUp({
+    //     ...signUp,
+    //     phoneNumber: formatPhoneNumber(value)
+    //   });
+    //   console.log(signUp.phoneNumber);
+    //   value = signUp.phoneNumber;
+    // }
+  };
 
   const handleSignup = async (event) => {
     event.preventDefault();
-
+    
     try {
       const { data } = await addUser({
         variables: { ...signUp }
@@ -59,6 +66,36 @@ const Signup = () => {
       console.error(e);
     }
   };
+
+  // function formatPhoneNumber(phoneNumberString) {
+  //   var cleaned = ('' + phoneNumberString).replace(/\D/g, '');
+  //   var match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/);
+  //   if (match) {
+  //     var intlCode = (match[1] ? '+1 ' : '');
+  //     return [intlCode, '(', match[2], ') ', match[3], '-', match[4]].join('');
+  //   }
+  //   return null;
+  // };
+
+  // function formatPhoneNumber(value) {
+  //   if (!value) return value;
+  //   const phoneNumber = value.replace(/[^\d]/g, '');
+  //   const phoneNumberLength = phoneNumber.length;
+  //   if (phoneNumberLength < 4) return phoneNumber;
+  //   if (phoneNumberLength < 7) {
+  //     return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3)}`;
+  //   }
+  //   return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(
+  //     3,
+  //     6
+  //   )}-${phoneNumber.slice(6, 9)}`;
+  // }
+
+  // function phoneNumberFormatter() {
+  //   const inputField = document.getElementById('phone-number');
+  //   const formattedInputValue = formatPhoneNumber(inputField.value);
+  //   inputField.value = formattedInputValue;
+  // }
 
   return (
     <FormControl textAlign='center'>
@@ -78,7 +115,7 @@ const Signup = () => {
             />
           </InputGroup>
         ))}
-        <Button boxShadow='md' _active={{ boxShadow: 'lg' }} onClick={handleSignup}>
+        <Button boxShadow='md' _active={{ boxShadow: 'lg' }} onClick={handleSignup} >
           Signup
         </Button>
       </Stack>
