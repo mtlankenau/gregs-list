@@ -6,7 +6,7 @@ import Signup from './pages/signUp';
 import Login from './pages/login';
 import CreateJob from './pages/create-job';
 import SingleJob from './pages/single-job';
-import jobCat from './pages/jobCat';
+import JobCat from './pages/jobCat';
 import Profile from './pages/profile';
 // import components
 import NavBar from './components/navBar';
@@ -31,8 +31,11 @@ function App() {
               <Route exact path='/login' component={Login}/>
               <Route exact path='/signup' component={Signup}/>
               <Route exact path='/CreateJob' component={CreateJob}/>
-            </Switch>
               <Route exact path='/profile' component={Profile}/>
+              <Route exact path='/jobCat' component={JobCat}/>
+              <Route exact path='/single-job' component={SingleJob}/>
+            </Switch>
+              
 
           <Footer />
         </Container>
