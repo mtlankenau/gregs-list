@@ -40,8 +40,8 @@ function App() {
     document.cookie.split(';').some((item) => item.trim().startsWith('loggedIn=')));
   
   return (
-    <ApolloProvider client={client}>
       <ChakraProvider>
+    <ApolloProvider client={client}>
         <Router>
           <NavBar/>
             <Switch>
@@ -51,8 +51,8 @@ function App() {
             </Switch>
           <Footer/>
         </Router>
-      </ChakraProvider>
     </ApolloProvider>
+      </ChakraProvider>
   );
 }
 

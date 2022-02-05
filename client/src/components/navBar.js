@@ -1,36 +1,37 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Box, Flex, Stack, Button, Link } from '@chakra-ui/react';
+import Auth from '../utils/auth';
 
-class Navbar extends Component {
-  constructor() {
-    super()
-
-    this.state = {
-      loggedIn: false
-    }
-  }
-
-  componentDidMount() {
-    if (document.cookie.split(';').filter((item) => item.trim().startsWith('logedIn=')).length) {
-      this.setState({ loggedIn: true })
-    }
-    window.setInterval(() => {
-      if (document.cookie.split(';').filter((item) => item.trim().startsWith('logedIn=')).length) {
-        this.setState({ loggedIn: true })
-      }
-      else {
-        this.setState({ loggedIn: false })
-      }
-    }, 500)
-  }
-
-  render() {
-    return (
- 
+const NavBar = () => {
+  return (
      <Flex justify='space-around'>
         <Box>
           <Stack spacing={8} justify='center' align='center' isInline>
             <Button position='relative' variant='outline'>
+                <Link href='/home'>Home</Link>
+            </Button>
+            {Auth.loggedIn() ? (
+              <>
+              <Button position='relative' variant='outline' >
+                <Link  href='/profile'>Profile</Link>
+              </Button>
+              <Button position='relative' variant='outline' >
+                <Link  href='/'>Logout</Link>
+              </Button>
+              </>
+            ) : (
+              <>
+              <Button position='relative' variant='outline' >
+                <Link  href='/login'>Login</Link>
+              </Button>
+                <Button position='relative' variant='outline'>
+                  <Link href='/signup'>
+                    Signup
+                  </Link>
+              </Button>
+              </>
+            )}
+            {/* <Button position='relative' variant='outline'>
               <Link href='/home'>Home</Link>
             </Button>
             <Button position='relative' variant='outline' >
@@ -40,12 +41,11 @@ class Navbar extends Component {
               <Link href='/signup'>
                 Signup
               </Link>
-            </Button>
+            </Button> */}
           </Stack>
         </Box>
       </Flex>
   );
-}
 }
 
 export default NavBar;
