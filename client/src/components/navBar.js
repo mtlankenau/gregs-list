@@ -8,7 +8,7 @@ const NavBar = () => {
         <Box pb={8}>
           <Stack spacing={8} justify='center' align='center' isInline>
             <Button position='relative' variant='outline'>
-                <Link href='/home'>Home</Link>
+                <Link href='/'>Home</Link>
             </Button>
             {Auth.loggedIn() ? (
               <>
