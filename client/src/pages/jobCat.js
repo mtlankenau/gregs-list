@@ -18,10 +18,10 @@ export default function jobCat () {
                         
                         <Box p={4}>
                             <Stack inInLine align='baseline'>
-                                <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>Music Lessons</Text>
+                                <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>Piano</Text>
                             </Stack>
                             <Text fontWeight='light' fontSize='md'>
-                                Local music lessons from the people within your community. Video lessons are also available!
+                                Discription of job, whatever mumbo jumbo you want to have here.
                             </Text>
                             
                         </Box>
