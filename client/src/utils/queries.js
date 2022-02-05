@@ -31,20 +31,22 @@ export const GET_POSTS = gql`
 `
 
 export const GET_SINGLE_POST = gql`
-    post(_id: $_id) {
-        _id
-        postType
-        postCategory
-        postTitle
-        postPrice
-        postDescription
-        createdAt
-        username
+    query post($_id: ID!) {
+        post(_id: $_id) {
+            _id
+            postType
+            postCategory
+            postTitle
+            postPrice
+            postDescription
+            createdAt
+            username
+        }
     }
 `
 
 export const GET_USER = gql`
-    users {
+    query users {
         _id
         username
         email
@@ -73,17 +75,19 @@ export const GET_USER = gql`
 `
 
 export const GET_SINGLE_USER = gql`
-    user(username: $username) {
-        _id
-        username
-        posts {
+    query user($username: String!) {
+        user(username: $username) {
             _id
-            createdAt
-            postType
-            postCategory
-            postTitle
-            postPrice
-            postDescription
+            username
+            posts {
+                _id
+                createdAt
+                postType
+                postCategory
+                postTitle
+                postPrice
+                postDescription
+            }
         }
     }
 `
