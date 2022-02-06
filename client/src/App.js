@@ -44,13 +44,14 @@ function App() {
   // )
   return (
     <ChakraProvider classname="App" minH='100%'>
+      <ApolloProvider client={client}>
       <Router>
         <Container minW='100%' >
           <NavBar/>
             <Switch>
-              <Route exact path='/home' component={Home}/>
+              <Route exact path='/' component={Home}/>
               <Route exact path='/login' component={Login}/>
-              <Route exact path='/signup' component={Signup}/>
+              <Route exact path='/signUp' component={Signup}/>
               <Route exact path='/CreateJob' component={CreateJob}/>
               <Route exact path='/profile' component={Profile}/>
               <Route exact path='/jobCat' component={JobCat}/>
@@ -61,6 +62,7 @@ function App() {
           <Footer />
         </Container>
       </Router>
+      </ApolloProvider>
     </ChakraProvider>
   );
 }

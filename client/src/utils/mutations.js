@@ -47,7 +47,7 @@ export const LOGIN_USER = gql`
 
 export const ADD_POST = gql`
   mutation addPost($postType: String!, $postCategory: String!, $postTitle: String!, $postPrice: String!, $postDescription: String!) {
-    addPost(postType: $postType, postCategory: $postCategory, postTitle: $postTitle, postPrice: $postPrice, postDescription: postDescription) {
+    addPost(postType: $postType, postCategory: $postCategory, postTitle: $postTitle, postPrice: $postPrice, postDescription: $postDescription) {
         _id
         postType
         postCategory
