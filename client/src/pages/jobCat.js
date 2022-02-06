@@ -13,7 +13,7 @@ export default function JobCat() {
     const {loading, data} = useQuery(GET_POST_BY_CATEGORY, {
         variables: {postCategory}
     });
-    const posts = data;
+    const posts = data?.postByCat || [];
     console.log(posts);
 
     if(loading) {
@@ -22,37 +22,40 @@ export default function JobCat() {
         return(
             <Container minW='100%' minH='100%'>
                <Box>
-                   Job Category (Music Lessons)
+                   {/* {posts.postByCat.postTitle} Category: {postCategory} */}
                </Box>
                <Wrap>
+                   {posts.map((post) => (
                     <Box
                         w='100%'
                         rounded='5px'
                         overflow='hidden'
                         boxShadow='sm'
-                        bg='gray.200'>
+                        bg='gray.200'
+                        key={post._id}>
                         
                         <Box p={4}>
-                            <Stack inInLine align='baseline'>
-                                <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>{posts.postByCat[0].postTitle}</Text>
+                            <Stack align='baseline'>
+                                <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>{post.postTitle}</Text>
                             </Stack>
                             <Text fontWeight='light' fontSize='md'>
-                                {posts.postByCat[0].postDescription}
+                                {post.postDescription}
                             </Text>
                             
                         </Box>
                         <Stack my={4} direction={'row'} spacing={100} align={'center'}>
                             <Stack direction={'column'} spacing={0} fontSize={'sm'}>
-                                <Text fontWeight={600}>{posts.postByCat[0].username}</Text>
-                                <Text fontWeight={600}>First Last</Text>
-                                <Text color={'gray.500'}>{posts.postByCat[0].createdAt}</Text>
+                                <Text fontWeight={600}>{post.username}</Text>
+                                <Text fontWeight={600}>{post.postPrice}</Text>
+                                <Text color={'gray.500'}>{post.createdAt}</Text>
                             </Stack>
-                            <Stack direction={'column'} spacing={0} fontSize={'sm'}>
+                            {/* <Stack direction={'column'} spacing={0} fontSize={'sm'}>
                                 <Text fontWeight={600}>Email</Text> 
                                 <Text color={'gray.500'}>555-555-5555</Text>
-                            </Stack>
-                        </Stack> 
+                            </Stack> */}
+                        </Stack>
                     </Box>
+                   ))}
                     {/* <Box
                         w='100%'
                         rounded='5px'
@@ -61,7 +64,7 @@ export default function JobCat() {
                         bg='gray.200'>
                         
                         <Box p={4}>
-                            <Stack inInLine align='baseline'>
+                            <Stack align='baseline'>
                                 <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>Music Lessons</Text>
                             </Stack>
                             <Text fontWeight='light' fontSize='md'>
