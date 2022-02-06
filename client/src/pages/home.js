@@ -111,7 +111,7 @@ const Home = ()=> {
                                         <Text fontWeight='light' fontSize='md'>
                                             Local music lessons from the people within your community. Video lessons are also available!
                                         </Text>
-                                        <Button as={Link} href='/jobCat' variant='outline' bgColor='green.200' size='md' mt={3} >Find</Button>
+                                        <Button as={Link} href='/jobCat/Music Lessons' variant='outline' bgColor='green.200' size='md' mt={3} >Find</Button>
                                     </Box> 
                                 </Box>
                                 <Box
@@ -128,7 +128,7 @@ const Home = ()=> {
                                         <Text fontWeight='light' fontSize='md'>
                                             Local art lessons from the people within your community. Video lessons are also available!
                                         </Text>
-                                        <Button variant='outline' bgColor='green.200' size='md' mt={3} >Find</Button>
+                                        <Button as={Link} href='/jobCat/Art Lessons' variant='outline' bgColor='green.200' size='md' mt={3} >Find</Button>
                                     </Box> 
                                 </Box>
                                 <Box
@@ -145,7 +145,7 @@ const Home = ()=> {
                                         <Text fontWeight='light' fontSize='md'>
                                             Let's grow a garden together bro. Idk.
                                         </Text>
-                                        <Button variant='outline' bgColor='green.200' size='md' mt={3} >Find</Button>
+                                        <Button as={Link} href='/jobCat/Garden' variant='outline' bgColor='green.200' size='md' mt={3} >Find</Button>
                                     </Box> 
                                 </Box>
                                 <Box
@@ -162,7 +162,7 @@ const Home = ()=> {
                                         <Text fontWeight='light' fontSize='md'>
                                             Couldn't tell you a thing about this one.
                                         </Text>
-                                        <Button variant='outline' bgColor='green.200' size='md' mt={3} >Find</Button>
+                                        <Button as={Link} href='/jobCat/Website Design' variant='outline' bgColor='green.200' size='md' mt={3} >Find</Button>
                                     </Box> 
                                 </Box>
                             </Wrap>

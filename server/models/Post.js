@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const { User } = require('.');
 const responseSchema = require('./Response');
 
 const postSchema = new Schema(
