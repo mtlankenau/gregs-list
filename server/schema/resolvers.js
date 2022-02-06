@@ -35,7 +35,12 @@ const resolvers = {
 
     post: async (parent, { _id }) => {
       return Post.findOne({ _id });
-    }
+    },
+
+    postByCat: async (parent, {postCategory}) => {
+      const params = {postCategory};
+      return Post.find(params).sort({ createdAt: -1})
+    },
   },
   Mutation: {
     addUser: async(parents, args) => {

@@ -91,3 +91,18 @@ export const GET_SINGLE_USER = gql`
         }
     }
 `
+export const GET_POST_BY_CATEGORY = gql`
+    query postByCat($postCategory: String!) {
+        postByCat(postCategory: $postCategory) {
+            postType
+            postTitle
+            postPrice
+            postDescription
+            _id
+            username
+            responseCount
+            createdAt
+            postCategory
+        }
+    }
+`
