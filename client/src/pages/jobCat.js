@@ -1,5 +1,5 @@
 import React from "react";
-import {Container, Box, Wrap, Stack, Text, Link, } from "@chakra-ui/react";
+import {Container, Box, Wrap, Stack, Text, Link, Button, } from "@chakra-ui/react";
 import { useParams } from 'react-router-dom';
 import {GET_POST_BY_CATEGORY} from '../utils/queries';
 import {useQuery} from '@apollo/client';
@@ -32,7 +32,9 @@ export default function JobCat() {
                         overflow='hidden'
                         boxShadow='sm'
                         bg='gray.200'
-                        key={post._id}>
+                        key={post._id}
+                        as={Link}
+                        href={`/single-job/${post.username}/${post._id}`}>
                         
                         <Box p={4}>
                             <Stack align='baseline'>
