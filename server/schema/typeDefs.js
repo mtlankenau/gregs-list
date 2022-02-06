@@ -45,6 +45,7 @@ const typeDefs = gql`
     user(username: String!): User
     posts: [Post]
     post(_id: ID!): Post
+    postByCat(postCategory: String!): [Post]
     responses: [Response]
     response(_id: ID!): Response
   }
