@@ -1,9 +1,8 @@
-import { Box, Container, Stack, Text, Link } from "@chakra-ui/react";
+import { Box, Container, Stack, Text, Link, Button, Textarea, FormControl, Wrap, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon } from "@chakra-ui/react";
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { GET_SINGLE_USER } from "../utils/queries";
-
 
 export default function Profile () {
 
@@ -18,32 +17,98 @@ export default function Profile () {
     if(loading) {
         return <div><p>&#x1F354</p> Loading...</div>
     }
-
         return(
-            <Container>
-                <Box fontWeight='bold'>
-                    Your Posts:
-                </Box>
-                {user.posts.map((post) => (
-                    <Link href={`/single-job/${user.username}/${post._id}`}>
-                        <Box w='100%' rounded='5px' overflow='hidden' boxShadow='sm' bg='gray.200' mb='5px' key={post._id}>
-                            <Box p={4}>
-                                <Stack align='baseline'>
-                                    <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>{post.postTitle}</Text>
-                                </Stack>
-                                <Text fontWeight='light' fontSize='md'>
-                                    {post.postDescription}
-                                </Text>
-                            </Box>
-                            <Stack my={4} direction={'row'} spacing={100} align={'center'}>
-                                <Stack direction={'column'} spacing={0} fontSize={'sm'}>
-                                    <Text color={'gray.500'}>Posted on {post.createdAt}</Text>
-                                </Stack>
-                            </Stack> 
+            <>
+            <Container minW='80%' minH='100%'>
+                    <Stack spacing={8} justify='center' align='center' width='100%'>
+                        <Box w='100%' rounded='5px' overflow='hidden' boxShadow='sm' bg='gray.200' mb='5px'>
+                            Image
                         </Box>
-                    </Link>
-                ))}
-                {/* <Box>
+                        <Box w='100%' rounded='5px' overflow='hidden' boxShadow='sm' bg='gray.200' mb='5px'>
+                            Username: {user.username}
+                        </Box>
+                        <Box w='100%' rounded='5px' overflow='hidden' boxShadow='sm' bg='gray.200' mb='5px'>
+                            Name: {user.firstName} {user.lastName}
+                        </Box>
+                            
+                            <FormControl textAlign='center'>
+                            <Stack spacing={3} m={3} ml={250} mr={250}>
+                                <Textarea placeholder='Add your profile biography' name='' value='' onChange />
+                                <Button boxShadow='md' _active={{ boxShadow: 'lg' }}>Submit</Button>
+                            </Stack>
+                            </FormControl>
+                    </Stack>
+
+                    <Box fontWeight='bold'>
+                        Your Posts:
+                    </Box>
+                    {user.posts.map((post) => (
+                        <Link href={`/single-job/${user.username}/${post._id}`}>
+                            <Box w='100%' rounded='5px' overflow='hidden' boxShadow='sm' bg='gray.200' mb='5px' key={post._id}>
+                                <Box p={4}>
+                                    <Stack align='baseline'>
+                                        <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>{post.postTitle}</Text>
+                                    </Stack>
+                                    <Text fontWeight='light' fontSize='md'>
+                                        {post.postDescription}
+                                    </Text>
+                                </Box>
+                                <Stack my={4} direction={'row'} spacing={100} align={'center'}>
+                                    <Stack direction={'column'} spacing={0} fontSize={'sm'}>
+                                        <Text color={'gray.500'}>Posted on {post.createdAt}</Text>
+                                    </Stack>
+                                </Stack> 
+                            </Box>
+                        </Link>
+                    ))}
+            </Container>
+
+            <Container minW='75%' minH='100%'>
+            <Accordion allowToggle rounded='5px' >
+                <AccordionItem>
+                    <h2>
+                        <AccordionButton>
+                            <Box 
+                                bg='white' 
+                                w='100%'
+                                pt={8}
+                                pb={8}
+                                >Your posts
+                            </Box>
+                            <AccordionIcon />
+                        </AccordionButton>
+                    </h2>
+                    <AccordionPanel pb={4}>
+                        <Wrap>
+                        {user.posts.map((post) => (
+                            <Box
+                                w='100%'
+                                rounded='5px'
+                                overflow='hidden'
+                                boxShadow='sm'
+                                bg='gray.200'>
+                                
+                                <Box p={5}>
+                                    <Stack isInline align='baseline'>
+                                        <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>{post.postTitle}</Text>
+                                    </Stack>
+                                    <Text fontWeight='light' fontSize='md'>
+                                        {post.postDescription}
+                                    </Text>
+                                    <Button as={Link} href={`/single-job/${user.username}/${post._id}`} variant='outline' bgColor='green.200' size='md' mt={3} >More info</Button>
+                                </Box>
+                            </Box>
+                        ))}
+                        </Wrap>
+                    </AccordionPanel>
+                </AccordionItem>
+            </Accordion>
+            </Container>
+            </>
+        );
+}
+
+{/* <Box>
                     <Box fontWeight='bold'>
                     {user.firstName} {user.lastName}
                     </Box>
@@ -127,6 +192,3 @@ export default function Profile () {
                             </Stack>
                         </Stack> 
                     </Box> */}
-            </Container>
-        );
-}
