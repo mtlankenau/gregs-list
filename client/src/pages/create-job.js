@@ -6,7 +6,8 @@ import {InputGroup,
       FormControl,
       Stack,
       Button,
-      Container} from '@chakra-ui/react';
+      Container,
+      Text} from '@chakra-ui/react';
 import {  CheckCircleIcon, PhoneIcon, HamburgerIcon } from '@chakra-ui/icons';
 import { Textarea } from '@chakra-ui/react'
 import {
@@ -33,17 +34,28 @@ export default function CreateJob () {
     postDescription: ''
   });
 
+  const [characterCount, setCharacterCount] = useState(0);
+
   const [addPost, { error }] = useMutation(ADD_POST);
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
-    // console.log(name);
-    // console.log(value);
-    setPostState({
-      ...postState,
-      [name]: value,
-    });
-    console.log(postState);
+      const { name, value } = event.target;
+      setPostState({
+        ...postState,
+        [name]: value,
+      });
+      console.log(postState);
+  };
+
+  const handleCharacterChange = (event) => {
+    if (event.target.value.length <= 280) {
+      setPostState({
+        ...postState,
+        postDescription: event.target.value
+      })
+      console.log(postState);
+      setCharacterCount(event.target.value.length);
+    }
   };
 
   const handlePostSubmit = async (event) => {
@@ -53,6 +65,7 @@ export default function CreateJob () {
       const { data } = await addPost({
         variables: { ...postState }
       });
+      console.log(data);
     } catch (e) {
       console.error(e);
     }
@@ -101,7 +114,8 @@ export default function CreateJob () {
                       
                 </InputGroup>
               ))}
-              <Textarea placeholder='Description' name='postDescription' value={postState.postDescription} onChange={handleChange} />
+              <Textarea placeholder='Description' name='postDescription' value={postState.postDescription} onChange={handleChange, handleCharacterChange} />
+              <Text>Character Count: {characterCount}/280</Text>
               <Button boxShadow='md' _active={{ boxShadow: 'lg' }} onClick={handlePostSubmit}>
                 Post!
               </Button>
