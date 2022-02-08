@@ -1,13 +1,25 @@
 import { Box, Container, Stack, Text, Link, Button, Textarea, FormControl, Wrap, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { GET_SINGLE_USER } from "../utils/queries";
 
 export default function Profile () {
 
     const { username: userParam } = useParams();
     console.log(userParam);
+
+    // const [bioText, setBioText] = useState('');
+
+    // const handleChange = (event) => {
+    //     setBioText(event.target.value);
+    //     console.log(bioText);
+    // }
+
+    // const handleBioSubmit = async (event) => {
+
+    // }
+
     const { loading, data } = useQuery(GET_SINGLE_USER, {
         variables: {username: userParam}
     });

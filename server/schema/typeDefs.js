@@ -10,6 +10,7 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     phoneNumber: String
+    bio: String
     posts: [Post]
     postCount: Int
   }
@@ -69,6 +70,7 @@ const typeDefs = gql`
     ) : Post
     addResponse(postId: ID!, responseText: String): Post
     deletePost(username: String!, postId: ID!): Post
+    addBio(bio: String!): User
   }
 `;
 

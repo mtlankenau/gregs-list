@@ -98,16 +98,29 @@ const resolvers = {
 
     deletePost: async (parent, { username, postId }) => {
 
-      const deletedPost = await Post.findOneAndDelete({_id: postId});
       const updatedUser = await User.findOneAndUpdate(
-          {_id: username},
+          {username: username},
           {$pull: { posts: postId }},
           {new: true}
       );
   
-      return { deletedPost, updatedUser };
+      return { updatedUser };
+    },
+
+    addBio: async (parent, { bioText }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $push: { bio: bioText } },
+          { new: true }
+        );
+        console.log(updatedUser.username);
+        console.log(updatedUser.bio);
+        return updatedUser;
+      }
       
-    }
+      throw new AuthenticationError('You need to be logged in to add a biography!');
+    },
   }
 };
 
