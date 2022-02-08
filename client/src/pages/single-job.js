@@ -4,11 +4,11 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { GET_SINGLE_POST, GET_SINGLE_USER } from "../utils/queries";
 
-export default function SingleJob () {
+export default function SingleJob() {
 
     const { username: username } = useParams();
-    const {loading, data} = useQuery(GET_SINGLE_USER, {
-        variables: {username}
+    const { loading, data } = useQuery(GET_SINGLE_USER, {
+        variables: { username }
     });
     const user = data?.user || {};
     console.log(user);
@@ -16,75 +16,75 @@ export default function SingleJob () {
     const { postId: _id } = useParams();
     console.log(_id);
     const { data: postData } = useQuery(GET_SINGLE_POST, {
-        variables: {_id}
+        variables: { _id }
     });
     const singlePost = postData?.post || {};
     console.log(singlePost);
-    
-    if(loading) {
+
+    if (loading) {
         return <div><p>&#x1F354</p> Loading...</div>
     }
-    
-        return(
-           <Container>
-               <Box>
-                   Job Category: {singlePost.postCategory}
-               </Box>
-               <Wrap>
-                    <Box
-                        maxW='445px'
-                        w='full'
-                        rounded='5px'
-                        overflow='hidden'
-                        boxShadow={'2xl'}
-                        bg='white'
-                        p={6}
-                        overflow={'hidden'}>
-                            <Box
-                            h={'210px'}
-                            bg={'gray.100'}
-                            mt={-6}
-                            mx={-6}
-                            mb={6}
-                            pos={'relative'}>
-                            
-                        </Box>
 
-                        <Stack>
-                            <Text
-                                color={'green.500'}
-                                textTransform={'uppercase'}
-                                fontWeight={800}
-                                fontSize={'md'}
-                                letterSpacing={1.1}>
-                                ${singlePost.postPrice}
-                            </Text>
-                            <Heading
-                                color='black'
-                                fontSize={'2xl'}
-                                fontFamily={'body'}>
-                                {singlePost.postTitle}
-                            </Heading>
-                            <Text color={'gray.500'}>{singlePost.postDescription}
-                                </Text>
-                        </Stack>
-                        
-                        <Stack my={4} direction={'row'} spacing={100} align={'center'}>   
-                            <Stack mt={6} direction={'column'} spacing={0} align={'left'}>
-                                <Text fontWeight={600}>{user.lastName}, {user.firstName} </Text>
-                                {/* <Text fontWeight={600}>{user.username}</Text> */}
+    return (
+        <Container>
+            <Box>
+                Job Category: {singlePost.postCategory}
+            </Box>
+            <Wrap>
+                <Box
+                    maxW='445px'
+                    w='full'
+                    rounded='5px'
+                    overflow='hidden'
+                    boxShadow={'2xl'}
+                    bg='white'
+                    p={6}
+                    overflow={'hidden'}>
+                    <Box
+                        h={'210px'}
+                        bg={'gray.100'}
+                        mt={-6}
+                        mx={-6}
+                        mb={6}
+                        pos={'relative'}>
+
+                    </Box>
+
+                    <Stack>
+                        <Text
+                            color={'green.500'}
+                            textTransform={'uppercase'}
+                            fontWeight={800}
+                            fontSize={'md'}
+                            letterSpacing={1.1}>
+                            ${singlePost.postPrice}
+                        </Text>
+                        <Heading
+                            color='black'
+                            fontSize={'2xl'}
+                            fontFamily={'body'}>
+                            {singlePost.postTitle}
+                        </Heading>
+                        <Text color={'gray.500'}>{singlePost.postDescription}
+                        </Text>
+                    </Stack>
+
+                    <Stack my={4} direction={'row'} spacing={100} align={'center'}>
+                        <Stack mt={6} direction={'column'} spacing={0} align={'left'}>
+                            <Text fontWeight={600}>{user.lastName}, {user.firstName} </Text>
+                            {/* <Text fontWeight={600}>{user.username}</Text> */}
                             <Stack direction={'column'} spacing={0} fontSize={'sm'}>
                                 <Text fontWeight={600}>{user.email}</Text>
                                 <Text color={'gray.500'}>{user.phoneNumber}</Text>
                             </Stack>
-                            
+
                         </Stack>
                         <Button outline={'3px'} variant='outline' size='lg' >
                             <Link href="/profile" fontSize='sm'>User: {user.username} </Link>
                         </Button>
-                        </Stack> 
-                    </Box>
-                </Wrap>
-           </Container>
-        );
+                    </Stack>
+                </Box>
+            </Wrap>
+        </Container>
+    );
 }
