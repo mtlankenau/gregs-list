@@ -28,7 +28,7 @@ export const GET_POSTS = gql`
             createdAt
         }
     }
-`
+`;
 
 export const GET_SINGLE_POST = gql`
     query post($_id: ID!) {
@@ -43,7 +43,7 @@ export const GET_SINGLE_POST = gql`
             username
         }
     }
-`
+`;
 
 export const GET_USER = gql`
     query users {
@@ -72,13 +72,17 @@ export const GET_USER = gql`
         }
         postCount
     }
-`
+`;
 
 export const GET_SINGLE_USER = gql`
     query user($username: String!) {
         user(username: $username) {
             _id
             username
+            email
+            firstName
+            lastName
+            phoneNumber
             posts {
                 _id
                 createdAt
@@ -90,4 +94,20 @@ export const GET_SINGLE_USER = gql`
             }
         }
     }
-`
+`;
+
+export const GET_POST_BY_CATEGORY = gql`
+    query postByCat($postCategory: String!) {
+        postByCat(postCategory: $postCategory) {
+            postType
+            postTitle
+            postPrice
+            postDescription
+            _id
+            username
+            responseCount
+            createdAt
+            postCategory
+        }
+    }
+`;

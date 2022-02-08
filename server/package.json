@@ -17,8 +17,10 @@
     "express": "^4.17.2",
     "faker": "^6.6.6",
     "graphql": "^16.3.0",
+    "install": "^0.13.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.2.0"
+    "mongoose": "^6.2.0",
+    "node-pre-gyp": "^0.17.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

@@ -75,8 +75,10 @@ export default function CreateJob () {
                 Select Post Category
               </MenuButton>
               <MenuList>
-                <MenuItem onClick={handleChange} name='postCategory' value='cat1'>Cat1</MenuItem>
-                <MenuItem onClick={handleChange} name='postCategory' value='cat2'>Cat2</MenuItem>
+                <MenuItem onClick={handleChange} name='postCategory' value='Music Lessons'>Music Lessons</MenuItem>
+                <MenuItem onClick={handleChange} name='postCategory' value='Art Lessons'>Art Lessons</MenuItem>
+                <MenuItem onClick={handleChange} name='postCategory' value='Garden'>Garden</MenuItem>
+                <MenuItem onClick={handleChange} name='postCategory' value='Website Design'>Website Design</MenuItem>
               </MenuList>
             </Menu>
           </Stack>
