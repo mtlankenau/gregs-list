@@ -25,6 +25,9 @@ export default function JobCat() {
                    {/* {posts.postByCat.postTitle} Category: {postCategory} */}
                </Box>
                <Wrap>
+                   {posts.length === 0 &&
+                       <Box>No posts have been made for this category yet!</Box>
+                   }
                    {posts.map((post) => (
                     <Box
                         w='100%'

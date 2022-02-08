@@ -196,12 +196,12 @@ const Home = ()=> {
                                     
                                     <Box p={5}>
                                         <Stack isInline align='baseline'>
-                                            <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>Music Lessons</Text>
+                                            <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>Writing</Text>
                                         </Stack>
                                         <Text fontWeight='light' fontSize='md'>
-                                            Local music lessons from the people within your community. Video lessons are also available!
+                                            Need a short story written? A written profile for a magazine? Find others who could use your writing skills here!
                                         </Text>
-                                        <Button variant='outline' bgColor='green.200' size='md' mt={3} >Find</Button>
+                                        <Button as={Link} href='/jobCat/Writing' variant='outline' bgColor='green.200' size='md' mt={3} >Find</Button>
                                     </Box> 
                                 </Box>
                                 <Box
@@ -213,12 +213,12 @@ const Home = ()=> {
                                     
                                     <Box p={5}>
                                         <Stack isInline align='baseline'>
-                                            <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>Art Lessons</Text>
+                                            <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>Creative</Text>
                                         </Stack>
                                         <Text fontWeight='light' fontSize='md'>
-                                            Local art lessons from the people within your community. Video lessons are also available!
+                                            Have a knack for unique creativity? See who might need your fresh creative perspective!
                                         </Text>
-                                        <Button variant='outline' bgColor='green.200' size='md' mt={3} >Find</Button>
+                                        <Button as={Link} href='/jobCat/Creative' variant='outline' bgColor='green.200' size='md' mt={3} >Find</Button>
                                     </Box> 
                                 </Box>
                                 <Box
@@ -230,12 +230,12 @@ const Home = ()=> {
                                     
                                     <Box p={5}>
                                         <Stack isInline align='baseline'>
-                                            <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>Garden</Text>
+                                            <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>Talent</Text>
                                         </Stack>
                                         <Text fontWeight='light' fontSize='md'>
-                                            Let's grow a garden together bro. Idk.
+                                            Do you have a talent strange enough to stand out from the rest? Find others who need that unicyclist!
                                         </Text>
-                                        <Button variant='outline' bgColor='green.200' size='md' mt={3} >Find</Button>
+                                        <Button as={Link} href='/jobCat/Talent' variant='outline' bgColor='green.200' size='md' mt={3} >Find</Button>
                                     </Box> 
                                 </Box>
                                 <Box
@@ -247,12 +247,12 @@ const Home = ()=> {
                                     
                                     <Box p={5}>
                                         <Stack isInline align='baseline'>
-                                            <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>Website Design</Text>
+                                            <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>Labor</Text>
                                         </Stack>
                                         <Text fontWeight='light' fontSize='md'>
-                                            Couldn't tell you a thing about this one.
+                                            Trying to use some powertools and add another layer of callus to those fingers? See who needs a hard-worker!
                                         </Text>
-                                        <Button variant='outline' bgColor='green.200' size='md' mt={3} >Find</Button>
+                                        <Button as={Link} href='/jobCat/Labor' variant='outline' bgColor='green.200' size='md' mt={3} >Find</Button>
                                     </Box> 
                                 </Box>
                             </Wrap>

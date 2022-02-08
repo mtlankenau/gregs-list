@@ -76,8 +76,9 @@ export default function SingleJob () {
                                 <Text color={'gray.500'}>{user.phoneNumber}</Text>
                             </Stack>
                         </Stack>
-                        {Auth.loggedIn &&
-                        <Button bg="red" color="white" onClick={handleDelete}>Delete Post</Button>}
+                        {Auth.getProfile().data.username === username &&
+                            <Button bg="red" color="white" onClick={handleDelete}>Delete Post</Button>
+                        }
                     </Box>
                 </Wrap>
            </Container>
