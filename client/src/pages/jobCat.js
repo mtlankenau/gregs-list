@@ -30,31 +30,39 @@ export default function JobCat() {
                         w='100%'
                         rounded='5px'
                         overflow='hidden'
-                        boxShadow='sm'
+                        boxShadow={'2x1'}
                         bg='gray.200'
+                        p={6}
                         key={post._id}
                         as={Link}
                         href={`/single-job/${post.username}/${post._id}`}>
                         
                         <Box p={4}>
                             <Stack align='baseline'>
-                                <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>{post.postTitle}</Text>
+                                <Text 
+                                color={'green.500'}
+                                as='h2' 
+                                fontWeight={800} 
+                                fontSize={'xl'} 
+                                my={2}>
+                                    {post.postTitle}
+                                </Text>
                             </Stack>
-                            <Text fontWeight='light' fontSize='md'>
+                            <Text 
+                                fontWeight={600} 
+                                fontSize={'2x1'}>
                                 {post.postDescription}
                             </Text>
                             
                         </Box>
                         <Stack my={4} direction={'row'} spacing={100} align={'center'}>
-                            <Stack direction={'column'} spacing={0} fontSize={'sm'}>
-                                <Text fontWeight={600}>{post.username}</Text>
-                                <Text fontWeight={600}>{post.postPrice}</Text>
-                                <Text color={'gray.500'}>{post.createdAt}</Text>
+                            <Stack mt={6} direction={'column'} spacing={0} fontSize={'sm'}>
+                                <Text fontWeight={600}>${post.postPrice}</Text>
                             </Stack>
-                            {/* <Stack direction={'column'} spacing={0} fontSize={'sm'}>
-                                <Text fontWeight={600}>Email</Text> 
-                                <Text color={'gray.500'}>555-555-5555</Text>
-                            </Stack> */}
+                            <Stack direction={'column'} spacing={0} fontSize={'sm'} >
+                                <Text fontWeight={600}>{post.username}</Text>
+                                <Text color={'gray.500'}>{post.createdAt}</Text>
+                                </Stack>
                         </Stack>
                     </Box>
                    ))}
