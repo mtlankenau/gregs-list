@@ -1,4 +1,4 @@
-import { Container, Box, Wrap, Stack, Text, Button, Link } from "@chakra-ui/react";
+import { Container, Box, Center, Heading, Wrap, Stack, Text, Button, Link} from "@chakra-ui/react";
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
@@ -32,33 +32,56 @@ export default function SingleJob () {
                </Box>
                <Wrap>
                     <Box
-                        w='100%'
+                        maxW='445px'
+                        w='full'
                         rounded='5px'
                         overflow='hidden'
-                        boxShadow='sm'
-                        bg='gray.200'>
-                        
-                        <Box p={4}>
-                            <Stack inInLine align='baseline'>
-                                <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>{singlePost.postTitle}</Text>
-                                <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>{singlePost.postPrice}</Text>
-                            </Stack>
-                            <Text fontWeight='light' fontSize='md'>
-                                {singlePost.postDescription}
-                            </Text>
+                        boxShadow={'2xl'}
+                        bg='white'
+                        p={6}
+                        overflow={'hidden'}>
+                            <Box
+                            h={'210px'}
+                            bg={'gray.100'}
+                            mt={-6}
+                            mx={-6}
+                            mb={6}
+                            pos={'relative'}>
                             
                         </Box>
-                        <Stack my={4} direction={'row'} spacing={100} align={'center'}>
+
+                        <Stack>
+                            <Text
+                                color={'green.500'}
+                                textTransform={'uppercase'}
+                                fontWeight={800}
+                                fontSize={'md'}
+                                letterSpacing={1.1}>
+                                ${singlePost.postPrice}
+                            </Text>
+                            <Heading
+                                color='black'
+                                fontSize={'2xl'}
+                                fontFamily={'body'}>
+                                {singlePost.postTitle}
+                            </Heading>
+                            <Text color={'gray.500'}>{singlePost.postDescription}
+                                </Text>
+                        </Stack>
+                        
+                        <Stack my={4} direction={'row'} spacing={100} align={'center'}>   
+                            <Stack mt={6} direction={'column'} spacing={0} align={'left'}>
+                                <Text fontWeight={600}>{user.lastName}, {user.firstName} </Text>
+                                {/* <Text fontWeight={600}>{user.username}</Text> */}
                             <Stack direction={'column'} spacing={0} fontSize={'sm'}>
-                                <Text fontWeight={600}>{user.username}</Text>
-                                <Text fontWeight={600}>{user.firstName}</Text>
-                                <Text fontWeight={600}>{user.lastName}</Text>
-                                <Text color={'gray.500'}>{singlePost.createdAt}</Text>
-                            </Stack>
-                            <Stack direction={'column'} spacing={0} fontSize={'sm'}>
-                                <Text fontWeight={600}>{user.email}</Text> 
+                                <Text fontWeight={600}>{user.email}</Text>
                                 <Text color={'gray.500'}>{user.phoneNumber}</Text>
                             </Stack>
+                            
+                        </Stack>
+                        <Button outline={'3px'} variant='outline' size='lg' >
+                            <Link href="/profile" fontSize='sm'>User: {user.username} </Link>
+                        </Button>
                         </Stack> 
                     </Box>
                 </Wrap>

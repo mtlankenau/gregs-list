@@ -17,7 +17,7 @@ export default function JobCat() {
     console.log(posts);
 
     if(loading) {
-        return <div><p>&#x1F354</p> Loading...</div>
+        return <div><p>#x1F354</p> Loading...</div>
     }
         return(
             <Container minW='100%' minH='100%'>
