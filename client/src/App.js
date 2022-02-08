@@ -53,7 +53,7 @@ function App() {
               <Route exact path='/login' component={Login}/>
               <Route exact path='/signUp' component={Signup}/>
               <Route exact path='/CreateJob' component={CreateJob}/>
-              <Route exact path='/profile' component={Profile}/>
+              <Route exact path='/profile/:username' component={Profile}/>
               <Route exact path='/jobCat/:category' component={JobCat}/>
               <Route exact path='/single-job/:username/:postId' component={SingleJob}/>
             </Switch>
