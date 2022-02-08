@@ -21,6 +21,7 @@ export default function jobCat () {
                                 <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>Piano</Text>
                             </Stack>
                             <Text fontWeight='light' fontSize='md'>
+                                <p>{}</p>
                                 Discription of job, whatever mumbo jumbo you want to have here.
                             </Text>
                             
