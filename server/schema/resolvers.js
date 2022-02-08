@@ -96,21 +96,18 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in before responding to a post!');
     },
 
-    deletePost: async (parent, { postId }, context) => {
+    deletePost: async (parent, { username, postId }) => {
 
-
-      if(context.user) {
       const deletedPost = await Post.findOneAndDelete({_id: postId});
       const updatedUser = await User.findOneAndUpdate(
-          {_id: context.user.id},
+          {_id: username},
           {$pull: { posts: postId }},
           {new: true}
       );
   
-      return updatedUser;
-      }
+      return { deletedPost, updatedUser };
       
-      }
+    }
   }
 };
 

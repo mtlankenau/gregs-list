@@ -1,8 +1,12 @@
 import { Container, Box, Wrap, Stack, Text, Button, Link } from "@chakra-ui/react";
 import React from "react";
 import { useParams } from "react-router-dom";
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { GET_SINGLE_POST, GET_SINGLE_USER } from "../utils/queries";
+import { DELETE_POST } from "../utils/mutations";
+import Auth from '../utils/auth';
+// import Auth from '../utils/auth';
+// import DeletePostButton from "../components/deletePostButton";
 
 export default function SingleJob () {
 
@@ -14,13 +18,25 @@ export default function SingleJob () {
     console.log(user);
 
     const { postId: _id } = useParams();
-    console.log(_id);
+    // console.log(_id);
     const { data: postData } = useQuery(GET_SINGLE_POST, {
         variables: {_id}
     });
     const singlePost = postData?.post || {};
     console.log(singlePost);
     
+    const [deletePost, { error }] = useMutation(DELETE_POST);
+
+    const handleDelete = async (event) => {
+        try {
+        const { data } = await deletePost({
+            variables: {username: username, postId: _id}
+        });
+        } catch (event) {
+        console.error(event);
+        }
+    };
+
     if(loading) {
         return <div><p>&#x1F354</p> Loading...</div>
     }
@@ -39,7 +55,7 @@ export default function SingleJob () {
                         bg='gray.200'>
                         
                         <Box p={4}>
-                            <Stack inInLine align='baseline'>
+                            <Stack align='baseline'>
                                 <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>{singlePost.postTitle}</Text>
                                 <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>{singlePost.postPrice}</Text>
                             </Stack>
@@ -59,7 +75,9 @@ export default function SingleJob () {
                                 <Text fontWeight={600}>{user.email}</Text> 
                                 <Text color={'gray.500'}>{user.phoneNumber}</Text>
                             </Stack>
-                        </Stack> 
+                        </Stack>
+                        {Auth.loggedIn &&
+                        <Button bg="red" color="white" onClick={handleDelete}>Delete Post</Button>}
                     </Box>
                 </Wrap>
            </Container>
