@@ -9,13 +9,12 @@ import Auth from '../utils/auth';
 // import DeletePostButton from "../components/deletePostButton";
 
 export default function SingleJob() {
-
+    console.log(Auth.getProfile());
     const { username: username } = useParams();
     const { loading, data } = useQuery(GET_SINGLE_USER, {
         variables: { username }
     });
     const user = data?.user || {};
-    console.log(user);
 
     const { postId: _id } = useParams();
     console.log(_id);
@@ -23,7 +22,6 @@ export default function SingleJob() {
         variables: { _id }
     });
     const singlePost = postData?.post || {};
-    console.log(singlePost);
     
     const [deletePost, { error }] = useMutation(DELETE_POST);
 
@@ -36,11 +34,17 @@ export default function SingleJob() {
         console.error(event);
         }
     };
+    const testUser = () => {
+        if( Auth.loggedIn()) {
+            return Auth.getProfile().data.username;
+        } else {
+            return '';
+        }
+    }
 
     if(loading) {
         return <div><p>&#x1F354</p> Loading...</div>
     }
-
     return (
         <Container>
             <Box>
@@ -98,8 +102,8 @@ export default function SingleJob() {
                         <Button outline={'3px'} variant='outline' size='lg' >
                             <Link href={`/profile/${user.username}`} fontSize='sm'>User: {user.username} </Link>
                         </Button>
-                        {Auth.getProfile().data.username === username &&
-                            <Button bg="gray.500" _hover={{bg: 'red'}} color="white"  onClick={handleDelete}>Delete Post</Button>
+                        {testUser() === username ?
+                            <Button bg="gray.500" _hover={{bg: 'red'}} color="white"  onClick={handleDelete}>Delete Post</Button> : null
                         }
                         </Stack>
                     </Stack>
