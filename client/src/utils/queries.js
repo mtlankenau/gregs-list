@@ -92,6 +92,9 @@ export const GET_SINGLE_USER = gql`
                 postPrice
                 postDescription
             }
+            postCount
+            bio
+
         }
     }
 `;
