@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Box, Flex, Stack, Button, Link } from '@chakra-ui/react';
+import { Box, Flex, Stack, Button, Link, Image } from '@chakra-ui/react';
 import Auth from '../utils/auth';
 
 const NavBar = () => {
@@ -9,12 +9,17 @@ const NavBar = () => {
   };
   
   return (
-     <Flex justify='space-around'>
-        <Box pb={8}>
-          <Stack spacing={8} justify='center' align='center' isInline>
+     <Flex justify='space-evenly'>
+        <Box pb={8} mt='10px'>
+          <Stack spacing={10} justify='space-evenly' align='center' direction='row'>
+                  <Image 
+                      height='50'
+                      width='50'
+                      src={require('../assets/images/logo.jpg')}
+                      alt='Logo'/>
             <Button position='relative' variant='outline'>
                 <Link href='/'>Home</Link>
-            </Button>
+            </Button> 
             {Auth.loggedIn() ? (
               <>
               <Button position='relative' variant='outline' >

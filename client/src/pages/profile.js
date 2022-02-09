@@ -43,18 +43,18 @@ export default function Profile () {
                             Name: {user.firstName} {user.lastName}
                         </Box>
                             
-                            <FormControl textAlign='center'>
+                            {/* <FormControl textAlign='center'>
                             <Stack spacing={3} m={3} ml={250} mr={250}>
                                 <Textarea placeholder='Add your profile biography' name='' value='' onChange />
                                 <Button boxShadow='md' _active={{ boxShadow: 'lg' }}>Submit</Button>
                             </Stack>
-                            </FormControl>
+                            </FormControl> */}
                     </Stack>
 
-                    <Box fontWeight='bold'>
+                    {/* <Box fontWeight='bold'>
                         Your Posts:
-                    </Box>
-                    {user.posts.map((post) => (
+                    </Box> */}
+                    {/* {user.posts.map((post) => (
                         <Link href={`/single-job/${user.username}/${post._id}`}>
                             <Box w='100%' rounded='5px' overflow='hidden' boxShadow='sm' bg='gray.200' mb='5px' key={post._id}>
                                 <Box p={4}>
@@ -72,19 +72,21 @@ export default function Profile () {
                                 </Stack> 
                             </Box>
                         </Link>
-                    ))}
+                    ))} */}
             </Container>
 
             <Container minW='75%' minH='100%'>
-            <Accordion allowToggle rounded='5px' >
+            <Accordion allowToggle rounded='5px' bg='green.200' mt='20px'>
                 <AccordionItem>
                     <h2>
                         <AccordionButton>
                             <Box 
-                                bg='white' 
+                                bg='gray.300' 
                                 w='100%'
                                 pt={8}
                                 pb={8}
+                                fontSize='2xl'
+                                fontWeight='600'
                                 >Your posts
                             </Box>
                             <AccordionIcon />

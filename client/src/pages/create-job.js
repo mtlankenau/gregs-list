@@ -7,6 +7,7 @@ import {InputGroup,
       Stack,
       Button,
       Container,
+      Link,
       Text} from '@chakra-ui/react';
 import {  CheckCircleIcon, PhoneIcon, HamburgerIcon } from '@chakra-ui/icons';
 import { Textarea } from '@chakra-ui/react'
@@ -18,6 +19,7 @@ import {
 } from '@chakra-ui/react'
 import { useMutation } from "@apollo/client";
 import { ADD_POST } from "../utils/mutations";
+import { Redirect } from "react-router-dom";
 
 const formData = [
     {name: "Post Title", icon: HamburgerIcon, postInfo: 'postTitle'},
@@ -71,6 +73,8 @@ export default function CreateJob () {
         variables: { ...postState }
       });
       console.log(data);
+      
+        return <Redirect to='/' />
     } catch (e) {
       console.error(e);
     }
@@ -134,7 +138,7 @@ export default function CreateJob () {
               ))}
               <Textarea placeholder='Description' name='postDescription' value={postState.postDescription} onChange={handleChange, handleCharacterChange} />
               <Text>Character Count: {characterCount}/280</Text>
-              <Button boxShadow='md' _active={{ boxShadow: 'lg' }} onClick={handlePostSubmit}>
+              <Button as={Link} href='/ 'boxShadow='md' _active={{ boxShadow: 'lg' }} onClick={handlePostSubmit}>
                 Post!
               </Button>
             </Stack>

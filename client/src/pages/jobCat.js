@@ -4,8 +4,6 @@ import { useParams } from 'react-router-dom';
 import {GET_POST_BY_CATEGORY} from '../utils/queries';
 import {useQuery} from '@apollo/client';
 
-
-
 export default function JobCat() {
 
     const {category: postCategory} = useParams();

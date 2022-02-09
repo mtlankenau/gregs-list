@@ -18,7 +18,7 @@ export default function SingleJob() {
     console.log(user);
 
     const { postId: _id } = useParams();
-    // console.log(_id);
+    console.log(_id);
     const { data: postData } = useQuery(GET_SINGLE_POST, {
         variables: { _id }
     });
@@ -94,13 +94,14 @@ export default function SingleJob() {
                                 <Text color={'gray.500'}>{user.phoneNumber}</Text>
                             </Stack>
                         </Stack>
-                        {Auth.getProfile().data.username === username &&
-                            <Button bg="red" color="white" onClick={handleDelete}>Delete Post</Button>
-                        }
-
+                        <Stack>
                         <Button outline={'3px'} variant='outline' size='lg' >
-                            <Link href="/profile" fontSize='sm'>User: {user.username} </Link>
+                            <Link href={`/profile/${user.username}`} fontSize='sm'>User: {user.username} </Link>
                         </Button>
+                        {Auth.getProfile().data.username === username &&
+                            <Button bg="gray.500" _hover={{bg: 'red'}} color="white"  onClick={handleDelete}>Delete Post</Button>
+                        }
+                        </Stack>
                     </Stack>
                 </Box>
             </Wrap>

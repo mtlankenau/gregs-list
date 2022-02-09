@@ -12,7 +12,7 @@ const Home = ()=> {
                     h='200px'
                     // bg='pink.50'
                     rounded='5px' 
-                    boxShadow='sm' 
+                    // boxShadow='sm' 
                     w='100%'
                     p={8} 
                     color='black' align='center'>
@@ -25,15 +25,14 @@ const Home = ()=> {
 
                 {/* CREATE JOB BUTTON AND OPTION FOR LOGGEDIN USERS */}
                 {Auth.loggedIn() &&
-                    <Box rounded='5px' h='100px' w='100%'>
-                        <Stack >
-                            <Box align='center'></Box>
-                            <Button as={Link} href='/createJob'>Post job</Button>
+                    <Box rounded='5px' h='100px' w='100%' justifyContent='center'>
+                        <Stack align='center' w='100%' justifyContent='center'>
+                            <Button as={Link} href='/createJob' bg='gray.200' _hover={{bg:'green.300'}}>Post job - Click Here</Button>
                         </Stack>
                     </Box>
                 }
                 {/* JOBS SECTION */}
-                <Accordion allowToggle rounded='5px' >
+                <Accordion allowToggle rounded='5px'>
                     <AccordionItem>
                         <h2>
                             <AccordionButton>
