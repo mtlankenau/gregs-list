@@ -44,7 +44,11 @@ export default function SingleJob() {
     return (
         <Container>
             <Box>
-                Job Category: {singlePost.postCategory}
+                <Link
+                    href={`/jobCat/${singlePost.postCategory}`}
+                    fontSize='lg'>
+                    {singlePost.postType} Category: {singlePost.postCategory}
+                </Link>
             </Box>
             <Wrap>
                 <Box
@@ -90,8 +94,9 @@ export default function SingleJob() {
                             <Text fontWeight={600}>{user.lastName}, {user.firstName} </Text>
                             {/* <Text fontWeight={600}>{user.username}</Text> */}
                             <Stack direction={'column'} spacing={0} fontSize={'sm'}>
-                                <Text fontWeight={600}>{user.email}</Text>
-                                <Text color={'gray.500'}>{user.phoneNumber}</Text>
+                                <Link py={1} fontWeight={600} href={`mailto: ${user.email}`}>{user.email}</Link>
+                                <Link color={'gray.500'} href={`tel: ${user.phoneNumber}`}>{user.phoneNumber}</Link>
+                                {/* <Text color={'gray.500'}>{user.phoneNumber}</Text> */}
                             </Stack>
                         </Stack>
                         <Stack>
