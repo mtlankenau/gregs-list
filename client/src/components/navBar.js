@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Box, Flex, Stack, Button, Link, Image } from '@chakra-ui/react';
+import { Box, Flex, Stack, Button, Link, Image, Spacer } from '@chakra-ui/react';
 import Auth from '../utils/auth';
 
 const NavBar = () => {
@@ -9,14 +9,19 @@ const NavBar = () => {
   };
   
   return (
-     <Flex justify='space-evenly'>
-        <Box pb={8} mt='10px'>
-          <Stack spacing={10} justify='space-evenly' align='center' direction='row'>
-                  <Image 
+     <Flex direction='row' >
+        <Box pb={8} mt='10px' w='70px'>
+          <Stack  direction='row'>
+                  <Image align='left'
                       height='50'
                       width='50'
                       src={require('../assets/images/logo.jpg')}
                       alt='Logo'/>
+            </Stack>
+          </Box>
+        <Spacer />
+        <Box pb={8} mt='10px' >
+        <Stack  spacing={10} direction='row'>
             <Button position='relative' variant='outline'>
                 <Link href='/'>Home</Link>
             </Button> 
@@ -41,23 +46,6 @@ const NavBar = () => {
               </Button>
               </>
             )}
-            {/* <Button position='relative' variant='outline'>
-              <Link href='/home'>Home</Link>
-            </Button>
-            <Button as={Link} href='/createJob' position='relative' variant='outline'>
-                Post Job
-            </Button>
-            <Button as={Link} href='/login' position='relative' variant='outline' >
-              Login
-            </Button>
-            <Button as={Link} href='/signup' position='relative' variant='outline'>
-                Signup
-            </Button>
-            <Button as={Link} href='/profile' position='relative' variant='outline'>
-                Profile
-            </Button>
-              </Link>
-            </Button> */}
           </Stack>
         </Box>
       </Flex>
