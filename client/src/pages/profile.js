@@ -61,7 +61,10 @@ export default function Profile () {
                                 lineHeight={1.5}
                                 textAlign={["center", "center", "left", "left"]}
                             >
-                            Name: {user.firstName} {user.lastName}
+                            {Auth.getProfile().data.username === userParam ? 
+                                <Text> Welcome to your profile {user.firstName} {user.lastName}!</Text>: (
+                                <Text>You are viewing {user.username}'s profile!</Text>
+                             )}
                         </Heading>
                         
                         <Box w='100%' rounded='5px' overflow='hidden' boxShadow='sm' bg='gray.200' mb='5px'>
@@ -101,12 +104,12 @@ export default function Profile () {
             </Container>
 
             <Container minW='75%' minH='100%'>
-            <Accordion allowToggle rounded='5px' bg='green.200' mt='20px'>
+            <Accordion allowToggle rounded='5px' bg="green.200" mt='20px'>
                 <AccordionItem>
                     <h2>
                         <AccordionButton>
                             <Box 
-                                bg='gray.300' 
+                                bg='gray.100' 
                                 w='100%'
                                 pt={8}
                                 pb={8}
@@ -121,7 +124,7 @@ export default function Profile () {
                             <AccordionIcon />
                         </AccordionButton>
                     </h2>
-                    <AccordionPanel pb={4}>
+                    <AccordionPanel pb={4} bg='blue.200'>
                         <Wrap>
                         {user.posts.map((post) => (
                             <Box
@@ -129,7 +132,9 @@ export default function Profile () {
                                 rounded='5px'
                                 overflow='hidden'
                                 boxShadow='sm'
-                                bg='gray.200'>
+                                bg='gray.200'
+                                border='2px'
+                                borderColor='gray.400'>
                                 
                                 <Box p={5}>
                                     <Stack isInline align='baseline'>
@@ -138,7 +143,7 @@ export default function Profile () {
                                     <Text fontWeight='light' fontSize='md'>
                                         {post.postDescription}
                                     </Text>
-                                    <Button as={Link} href={`/single-job/${user.username}/${post._id}`} variant='outline' bgColor='green.200' size='md' mt={3} >More info</Button>
+                                    <Button as={Link} href={`/single-job/${user.username}/${post._id}`} variant='outline' bg='blue.200' _hover={{bg: 'green.200'}} size='md' mt={3} >More info</Button>
                                 </Box>
                             </Box>
                         ))}

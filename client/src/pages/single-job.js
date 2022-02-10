@@ -1,4 +1,4 @@
-import { Container, Box, Center, Heading, Wrap, Stack, Text, Button, Link} from "@chakra-ui/react";
+import { Container, Box, Center, Heading, Wrap, Stack, Text, Button, Link, Flex} from "@chakra-ui/react";
 import React from "react";
 import { Redirect, useParams } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/client";
@@ -45,24 +45,30 @@ export default function SingleJob() {
         return <div><p>&#x1F354</p> Loading...</div>
     }
     return (
-        <Container>
-            <Box>
+        <Container alignItems='center' minW='100%' minH='100%'>
+            <Flex
+                justify='space-around'
+                direction='column'
+                align='center'
+                maxH={{ xl: "1200px" }}
+                >
+            <Stack spacing={3} m={3} minW='50%' minH='100%' align='center'>
                 <Link
                     href={`/jobCat/${singlePost.postCategory}`}
                     fontSize='lg'>
                     {singlePost.postType} Category: {singlePost.postCategory}
                 </Link>
-            </Box>
             <Wrap>
                 <Box
-                    maxW='445px'
-                    w='full'
+                    minW='20%'
                     rounded='5px'
                     overflow='hidden'
                     boxShadow={'2xl'}
                     bg='white'
                     p={6}
-                    overflow={'hidden'}>
+                    overflow={'hidden'}
+                    border='2px'
+                    borderColor='gray.400'>
                     {/* <Box
                         h={'210px'}
                         bg={'gray.100'}
@@ -107,7 +113,7 @@ export default function SingleJob() {
                             <Link href={`/profile/${user.username}`} fontSize='sm'>User: {user.username} </Link>
                         </Button>
                         {testUser() === username ?
-                            <Button bg="gray.500" _hover={{bg: 'red'}} color="white">
+                            <Button bg="red.400" color="black" _hover={{bg: 'red', color: 'white'}}>
                                 <Link onClick={handleDelete} href={`/profile/${user.username}`}>Delete Post</Link>
                             </Button> : null
                         }
@@ -115,6 +121,8 @@ export default function SingleJob() {
                     </Stack>
                 </Box>
             </Wrap>
+            </Stack>
+            </Flex>
         </Container>
     );
 }

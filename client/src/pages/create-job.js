@@ -116,10 +116,6 @@ export default function CreateJob () {
           <Container minW='100%' minH='100%'>
             <Flex justify='center' align='center' width='100%'
               align="center"
-              // justify={{ base: "center", md: "space-around", xl: "space-between" }}
-              // direction={{ base: "column-reverse", md: "row" }}
-              // wrap="no-wrap"
-              // minH="60vh"
               px={70}
               mb={3}>
               <Box w={{ base: "80%", sm: "60%", md: "50%" }} mb={{ base: 12, md: 0 }}>
@@ -179,8 +175,13 @@ export default function CreateJob () {
             </Stack>
           </Stack>
 
-            <FormControl textAlign='center'>
-            <Stack spacing={3} m={3} ml={250} mr={250}>
+            <FormControl textAlign='center' minW='100%' minH='100%'>
+              <Flex
+                direction='column'
+                align='center'
+                maxH={{ xl: "1200px" }}
+                >
+            <Stack spacing={3} m={3} ml={250} mr={250} minW='50%' minH='100%'>
               {formData.map((item) => (
                 <InputGroup key={item.name}>
                   <InputLeftElement
@@ -203,6 +204,7 @@ export default function CreateJob () {
                 Post!
               </Button>
             </Stack>
+            </Flex>
           </FormControl>
           </>
            
