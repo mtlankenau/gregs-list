@@ -68,8 +68,7 @@ const Home = ()=> {
                                     as={Link} href='/createJob'
                                     variantColor="primary"
                                     borderRadius="8px"
-                                    py="4"
-                                    px="4"
+                                    p={5}
                                     lineHeight="1"
                                     size="md"
                                     bg='blue.200'
@@ -80,12 +79,13 @@ const Home = ()=> {
                                 ) : (
                                 <Button
                                     as={Link} href='/signup'
-                                    variantColor="primary"
+                                    variant='outline'
                                     borderRadius="8px"
-                                    py="4"
-                                    px="4"
+                                    p={5}
                                     lineHeight="1"
                                     size="md"
+                                    bg='blue.200'
+                                    _hover={{bg: 'green.200'}}
                                 >
                                     Create an Account
                                 </Button>
@@ -124,18 +124,17 @@ const Home = ()=> {
                 {/* JOBS SECTION */}
                 <Accordion allowToggle rounded='5px'>
                     <AccordionItem>
-                        <h2>
                             <AccordionButton>
                                 <Box 
                                     bg='white' 
                                     w='100%'
+                                    fontSize='xl'
                                     pt={8}
                                     pb={8}
                                     >Jobs
                                 </Box>
                                 <AccordionIcon />
                             </AccordionButton>
-                        </h2>
                         <AccordionPanel pb={4}>
                             <Wrap>
                                 {jobData.map((job) => (
@@ -153,7 +152,7 @@ const Home = ()=> {
                                             <Text fontWeight='light' fontSize='md'>
                                                 {job.description}
                                             </Text>
-                                            <Button as={Link} href={`/jobCat/${job.title}`} variant='outline' bgColor='blue.200' _hover={{bg: 'green.200'}} size='md' mt={3} >Find</Button>
+                                            <Button as={Link} href={`/jobCat/${job.title}`} variant='outline' bg='blue.200' _hover={{bg: 'green.200'}} size='md' mt={3} >Find</Button>
                                         </Box> 
                                     </Box>
                                 ))}
@@ -170,6 +169,7 @@ const Home = ()=> {
                                 <Box 
                                     bg='white' 
                                     w='100%'
+                                    fontSize='xl'
                                     pt={8}
                                     pb={8} 
                                     >Gigs
@@ -194,7 +194,7 @@ const Home = ()=> {
                                                 <Text fontWeight='light' fontSize='md'>
                                                     {gig.description}
                                                 </Text>
-                                                <Button as={Link} href={`/jobCat/${gig.title}`} variant='outline' bgColor='blue.200' _hover={{bg: 'green.200'}} size='md' mt={3} >Find</Button>
+                                                <Button as={Link} href={`/jobCat/${gig.title}`} variant='outline' bg='blue.200' _hover={{bg: 'green.200'}} size='md' mt={3} >Find</Button>
                                             </Box> 
                                         </Box>
                                 ))}

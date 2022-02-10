@@ -100,10 +100,10 @@ const Login = () => {
             onChange={handleChange}
           />
         </InputGroup>
-        <Button boxShadow='md' _active={{ boxShadow: 'lg' }} onClick={handleLoginSubmit}>
+        <Button bg='blue.200' boxShadow='md' _active={{ boxShadow: 'lg' }} _hover={{bg: 'green.200'}} maxW='50%' minW='50%' alignSelf='center' onClick={handleLoginSubmit}>
           Login
         </Button>
-        <FormHelperText id='email-helper-text' textAlign='center'>
+        <FormHelperText id='email-helper-text' textAlign='center' fontSize='lg' pt={5}>
           Welcome back!
           <br />
           🏠

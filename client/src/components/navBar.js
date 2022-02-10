@@ -22,24 +22,24 @@ const NavBar = () => {
         <Spacer />
         <Box pb={8} mt='10px' >
         <Stack  spacing={10} direction='row'>
-            <Button as={Link} href='/' position='relative' variant='outline'>
+            <Button as={Link} href='/' position='relative' variant='outline' border='2px' borderColor='blue.200'>
               Home
             </Button> 
             {Auth.loggedIn() ? (
               <>
-              <Button as={Link} href={`/profile/${Auth.getProfile().data.username}`} position='relative' variant='outline' >
+              <Button as={Link} href={`/profile/${Auth.getProfile().data.username}`} position='relative' variant='outline' border='2px' borderColor='blue.200'>
                 Profile
               </Button>
-              <Button as={Link} href='/' onClick={logout} position='relative' variant='outline' >
+              <Button as={Link} href='/' onClick={logout} position='relative' variant='outline' border='2px' borderColor='blue.200'>
                 Logout
               </Button>
               </>
             ) : (
               <>
-              <Button as={Link} href='/login' position='relative' variant='outline' >
+              <Button as={Link} href='/login' position='relative' variant='outline' border='2px' borderColor='blue.200'>
                 Login
               </Button>
-              <Button as={Link} href='/signup' position='relative' variant='outline'>
+              <Button as={Link} href='/signup' position='relative' variant='outline' border='2px' borderColor='blue.200'>
                     Signup
               </Button>
               </>
