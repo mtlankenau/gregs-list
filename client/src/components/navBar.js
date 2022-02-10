@@ -22,27 +22,25 @@ const NavBar = () => {
         <Spacer />
         <Box pb={8} mt='10px' >
         <Stack  spacing={10} direction='row'>
-            <Button position='relative' variant='outline'>
-                <Link href='/'>Home</Link>
+            <Button as={Link} href='/' position='relative' variant='outline'>
+              Home
             </Button> 
             {Auth.loggedIn() ? (
               <>
-              <Button position='relative' variant='outline' >
-                <Link  href={`/profile/${Auth.getProfile().data.username}`}>Profile</Link>
+              <Button as={Link} href={`/profile/${Auth.getProfile().data.username}`} position='relative' variant='outline' >
+                Profile
               </Button>
-              <Button position='relative' variant='outline' >
-                <Link  href='/' onClick={logout}>Logout</Link>
+              <Button as={Link} href='/' onClick={logout} position='relative' variant='outline' >
+                Logout
               </Button>
               </>
             ) : (
               <>
-              <Button position='relative' variant='outline' >
-                <Link  href='/login'>Login</Link>
+              <Button as={Link} href='/login' position='relative' variant='outline' >
+                Login
               </Button>
-                <Button position='relative' variant='outline'>
-                  <Link href='/signup'>
+              <Button as={Link} href='/signup' position='relative' variant='outline'>
                     Signup
-                  </Link>
               </Button>
               </>
             )}
