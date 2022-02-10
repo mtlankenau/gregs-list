@@ -9,7 +9,7 @@ import {InputGroup,
       Container,
       Link,
       Text} from '@chakra-ui/react';
-import {  CheckCircleIcon, PhoneIcon, HamburgerIcon } from '@chakra-ui/icons';
+import {  CheckCircleIcon, ChevronDownIcon, HamburgerIcon } from '@chakra-ui/icons';
 import { Textarea } from '@chakra-ui/react'
 import {
   Menu,
@@ -30,13 +30,13 @@ export default function CreateJob () {
 
   const [postState, setPostState] = useState({
     postType: '',
-    postCategory: '',
+    postCategory: 'Music Lessons',
     postTitle: '',
     postPrice: '',
     postDescription: ''
   });
 
-  const [jobType, setJobType] = useState('');
+  const [jobType, setJobType] = useState('Jobs');
   // const [availableCategories, setAvailableCategories] = useState({})
 
   const [characterCount, setCharacterCount] = useState(0);
@@ -49,8 +49,9 @@ export default function CreateJob () {
         ...postState,
         [name]: value,
       });
-      console.log(postState);
-      setJobType(value);
+      if(name === 'postType') {
+        setJobType(value);
+      }
       console.log(jobType);
   };
 
@@ -82,19 +83,26 @@ export default function CreateJob () {
 
         return(
           <>
+
           <Stack spacing={8} justify='center' align='center' isInline>
+            <Stack direction={'column'}>
+            <Text fontWeight={600}>Select Your Job/Gig Below:</Text>
+            
             <Menu  closeOnSelect={true}>
-              <MenuButton as={Button} placeholder='Select Post Type'>
-                Select Post Type
+              <MenuButton as={Button} rightIcon={<ChevronDownIcon />} >
+                {jobType}
               </MenuButton>
-              <MenuList>
+              <MenuList placeholder='Select Post Type'>
                 <MenuItem onClick={handleChange} name='postType' value='Jobs'>Jobs</MenuItem>
                 <MenuItem onClick={handleChange} name='postType' value='Gigs'>Gigs</MenuItem>
               </MenuList>
             </Menu>
+            </Stack>
+            <Stack direction='column'>
+            <Text fontWeight={600} >Select Your Category Below:</Text>
             <Menu closeOnSelect={true}>
-              <MenuButton as={Button}>
-                Select Post Category
+              <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+                {postState.postCategory}
               </MenuButton>
               <MenuList>
                 {jobType === 'Jobs' && 
@@ -116,6 +124,7 @@ export default function CreateJob () {
                 
               </MenuList>
             </Menu>
+            </Stack>
           </Stack>
 
             <FormControl textAlign='center'>

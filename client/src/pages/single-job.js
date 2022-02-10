@@ -56,7 +56,7 @@ export default function SingleJob() {
                     bg='white'
                     p={6}
                     overflow={'hidden'}>
-                    <Box
+                    {/* <Box
                         h={'210px'}
                         bg={'gray.100'}
                         mt={-6}
@@ -64,7 +64,7 @@ export default function SingleJob() {
                         mb={6}
                         pos={'relative'}>
 
-                    </Box>
+                    </Box> */}
 
                     <Stack>
                         <Text
