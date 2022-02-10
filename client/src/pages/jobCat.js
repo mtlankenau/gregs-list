@@ -18,7 +18,7 @@ export default function JobCat() {
         return <div><p>#x1F354</p> Loading...</div>
     }
         return(
-            <Container minW='100%' minH='100%' bg='blue.300'>
+            <Container minW='100%' minH='100%' bg='blue.200'>
                <Box>
                    {/* {posts.postByCat.postTitle} Category: {postCategory} */}
                </Box>
@@ -41,24 +41,24 @@ export default function JobCat() {
                         <Box p={4}>
                             <Stack align='baseline'>
                                 <Text 
-                                color={'green.500'}
+                                // color={'green.500'}
                                 as='h2' 
-                                fontWeight={800} 
+                                fontWeight={700} 
                                 fontSize={'xl'} 
                                 my={2}>
                                     {post.postTitle}
                                 </Text>
                             </Stack>
                             <Text 
-                                fontWeight={600} 
+                                // fontWeight={600} 
                                 fontSize={'2x1'}>
                                 {post.postDescription}
                             </Text>
                             
                         </Box>
                         <Stack my={2} direction={'row'} spacing={100} align={'center'}>
-                            <Stack  direction={'column'} spacing={0} fontSize={'sm'} >
-                                <Text fontWeight={600}>${post.postPrice}</Text>
+                            <Stack  direction={'column'} spacing={0} fontSize={'sm'} ml={4} >
+                                <Text fontWeight={700} color="green.500">${post.postPrice}</Text>
                             </Stack>
                             <Stack direction={'column'} spacing={0} fontSize={'sm'} >
                                 <Text fontWeight={600}>Posted by: {post.username}</Text>

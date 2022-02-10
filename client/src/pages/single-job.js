@@ -45,7 +45,7 @@ export default function SingleJob() {
         return <div><p>&#x1F354</p> Loading...</div>
     }
     return (
-        <Container alignItems='center' minW='100%' minH='100%'>
+        <Container minW='100%' minH='100%'>
             <Flex
                 justify='space-around'
                 direction='column'
