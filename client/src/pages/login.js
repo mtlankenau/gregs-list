@@ -5,7 +5,10 @@ import {InputGroup,
 	FormControl,
 	FormHelperText,
 	Stack,
-	Button} from '@chakra-ui/react';
+	Button,
+  FormErrorMessage,
+  Flex
+} from '@chakra-ui/react';
 import { SearchIcon, LockIcon } from '@chakra-ui/icons';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
@@ -41,9 +44,38 @@ const Login = () => {
     };
   }
 
+  // function errorMessageExample() {
+  //   const [input, setInput] = useState('')
+  //   const handleInputChange = (e) => setInput(e.target.value)
+  //   const isError = input === ''
+  //   return (
+  //     <FormControl isInvalid={isError}>
+  //       <FormLabel htmlFor='email'>Email</FormLabel>
+  //       <Input
+  //         id='email'
+  //         type='email'
+  //         value={input}
+  //         onChange={handleInputChange}
+  //       />
+  //       {!isError ? (
+  //         <FormHelperText>
+  //           Enter the email you'd like to receive the newsletter on.
+  //         </FormHelperText>
+  //       ) : (
+  //         <FormErrorMessage>Email is required.</FormErrorMessage>
+  //       )}
+  //     </FormControl>
+  //   )
+  // }
+
   return (
-    <FormControl textAlign='center'>
-      <Stack spacing={3} m={3}>
+    <FormControl textAlign='center' isInvalid={error} minW='100%' minH='100%'>
+      <Flex
+        direction='column'
+        align='center'
+        maxH={{ xl: "1200px" }}
+        >
+      <Stack spacing={3} m={3} minW='50%' minH='100%'>
         <InputGroup>
           <InputLeftElement
             pointerEvents='none'
@@ -68,16 +100,21 @@ const Login = () => {
             onChange={handleChange}
           />
         </InputGroup>
-        <Button boxShadow='md' _active={{ boxShadow: 'lg' }} onClick={handleLoginSubmit}>
+        <Button bg='blue.200' boxShadow='md' _active={{ boxShadow: 'lg' }} _hover={{bg: 'green.200'}} maxW='50%' minW='50%' alignSelf='center' onClick={handleLoginSubmit}>
           Login
         </Button>
-        <FormHelperText id='email-helper-text' textAlign='center'>
+        <FormHelperText id='email-helper-text' textAlign='center' fontSize='lg' pt={5}>
           Welcome back!
           <br />
           🏠
         </FormHelperText>
-        {error && <div>Login failed, please try again!</div>}
+        {error &&
+          <Stack align='center'>
+            <FormErrorMessage textAlign='center' fontWeight='600' fontSize='2xl'>Invalid credentials - login failed! Please try again</FormErrorMessage>
+          </Stack>
+        }
       </Stack>
+      </Flex>
     </FormControl>
   );
 };

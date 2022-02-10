@@ -8,8 +8,10 @@ import {InputGroup,
   Icon,
 	FormControl,
 	Stack,
-	Button} from '@chakra-ui/react';
+	Button,
+  Flex } from '@chakra-ui/react';
 import { EditIcon, EmailIcon, PhoneIcon, LockIcon, SearchIcon } from '@chakra-ui/icons';
+import {signUpValidator, phoneFormat} from '../utils/helpers';
   
 const formData = [
   { name: "First name", icon: EditIcon, signUp: 'firstName' },
@@ -30,11 +32,15 @@ const Signup = () => {
     username: '',
     password: ''
   });
+  const [isValidForm, setIsValidForm] = useState(null);
 
   const [addUser, { error }] = useMutation(ADD_USER);
 
   const handleChange = (event) => {
     let { name, value } = event.target;
+    if (name === 'phoneNumber') {
+      value = phoneFormat(value);
+    }
     // console.log(name);
     // console.log(value);
     setSignUp({
@@ -42,12 +48,9 @@ const Signup = () => {
       [name]: value,
     });
     // if (name === 'phoneNumber') {
-    //   setSignUp({
-    //     ...signUp,
-    //     phoneNumber: formatPhoneNumber(value)
-    //   });
-    //   console.log(signUp.phoneNumber);
-    //   value = signUp.phoneNumber;
+    //   const pattern = /^(\([0-9]{3}\)|[0-9]{3}-)[0-9]{3}-[0-9]{4}$/;
+    //   const result = pattern.test(value)
+      
     // }
   };
 
@@ -55,6 +58,7 @@ const Signup = () => {
     event.preventDefault();
     
     try {
+      signUpValidator(signUp);
       const { data } = await addUser({
         variables: { ...signUp }
       });
@@ -63,7 +67,8 @@ const Signup = () => {
 
       Auth.login(data.addUser.token);
     } catch (e) {
-      console.error(e);
+      console.log(e)
+      setIsValidForm(e);
     }
   };
 
@@ -98,8 +103,13 @@ const Signup = () => {
   // }
 
   return (
-    <FormControl textAlign='center'>
-      <Stack spacing={3} m={3} ml={350} mr={350}>
+    <FormControl textAlign='center' minW='100%' minH='100%'>
+      <Flex
+                    direction='column'
+                    align='center'
+                    maxH={{ xl: "1200px" }}
+                    >
+      <Stack spacing={3} m={3} minW='50%' minH='100%'>
         {formData.map((item) => (
           <InputGroup key={item.name}>
             <InputLeftElement
@@ -115,11 +125,13 @@ const Signup = () => {
             />
           </InputGroup>
         ))}
-        <Button boxShadow='md' _active={{ boxShadow: 'lg' }} onClick={handleSignup} >
+        <Button bg='blue.200' boxShadow='md' _active={{ boxShadow: 'lg' }} _hover={{bg: 'green.200'}} onClick={handleSignup} alignSelf='center' maxW='50%' minW='50%'>
           Signup
         </Button>
+        {isValidForm && <div>{isValidForm.message}</div>}
+        {error && <div>Error attempting to log in, please try again!</div>}
       </Stack>
-      {error && <div>Signup failed, try again!</div>}
+      </Flex>
     </FormControl>
   );
 };
