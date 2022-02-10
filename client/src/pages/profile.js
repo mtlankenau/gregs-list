@@ -33,9 +33,9 @@ export default function Profile () {
             <>
             <Container minW='80%' minH='100%'>
                     <Stack spacing={8} justify='center' align='center' width='100%'>
-                        <Box w='100%' rounded='5px' overflow='hidden' boxShadow='sm' bg='gray.200' mb='5px'>
+                        {/* <Box w='100%' rounded='5px' overflow='hidden' boxShadow='sm' bg='gray.200' mb='5px'>
                             Image
-                        </Box>
+                        </Box> */}
                         <Box w='100%' rounded='5px' overflow='hidden' boxShadow='sm' bg='gray.200' mb='5px'>
                             Username: {user.username}
                         </Box>

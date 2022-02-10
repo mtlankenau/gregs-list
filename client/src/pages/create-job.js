@@ -84,7 +84,7 @@ export default function CreateJob () {
           <>
           <Stack spacing={8} justify='center' align='center' isInline>
             <Menu  closeOnSelect={true}>
-              <MenuButton as={Button}>
+              <MenuButton as={Button} placeholder='Select Post Type'>
                 Select Post Type
               </MenuButton>
               <MenuList>

@@ -18,7 +18,7 @@ export default function JobCat() {
         return <div><p>#x1F354</p> Loading...</div>
     }
         return(
-            <Container minW='100%' minH='100%' bg='green.500'>
+            <Container minW='100%' minH='100%' bg='blue.300'>
                <Box>
                    {/* {posts.postByCat.postTitle} Category: {postCategory} */}
                </Box>
