@@ -9,8 +9,7 @@ import {InputGroup,
 	FormControl,
 	Stack,
 	Button,
-  Flex,
-  Text } from '@chakra-ui/react';
+  Flex } from '@chakra-ui/react';
 import { EditIcon, EmailIcon, PhoneIcon, LockIcon, SearchIcon } from '@chakra-ui/icons';
 import {signUpValidator, phoneFormat} from '../utils/helpers';
   
@@ -130,6 +129,7 @@ const Signup = () => {
           Signup
         </Button>
         {isValidForm && <div>{isValidForm.message}</div>}
+        {error && <div>Error attempting to log in, please try again!</div>}
       </Stack>
       </Flex>
     </FormControl>

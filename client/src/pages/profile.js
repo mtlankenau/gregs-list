@@ -1,7 +1,7 @@
-import { Box, Container, Stack, Text, Link, Button, Heading, FormControl, Wrap, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon } from "@chakra-ui/react";
-import React, { useState } from "react";
+import { Box, Container, Stack, Text, Link, Button, Heading, Wrap, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon } from "@chakra-ui/react";
+import React from "react";
 import { useParams } from "react-router-dom";
-import { useQuery, useMutation } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { GET_SINGLE_USER } from "../utils/queries";
 import Auth from '../utils/auth';
 
@@ -103,6 +103,24 @@ export default function Profile () {
                     ))} */}
             </Container>
 
+            {user.posts.length === 0 &&
+                <>
+                <Container minW='75%' minH='100%'>
+                    <Box alignSelf='center' fontSize={30} pb={4}>{user.username} hasn't created any posts yet!</Box>
+                <Button
+                    as={Link} mb={5} href={`/CreateJob`}
+                    borderRadius="8px"
+                    p={5}
+                    lineHeight="1"
+                    size="md"
+                    bg='blue.200'
+                    _hover={{bg: 'green.200'}}
+                >
+                    Create a new post
+                </Button>
+                </Container>
+                </>
+                }
             <Container minW='75%' minH='100%'>
             <Accordion allowToggle rounded='5px' bg="green.200" mt='20px'>
                 <AccordionItem>
@@ -154,89 +172,4 @@ export default function Profile () {
             </Container>
             </>
         );
-}
-
-{/* <Box>
-                    <Box fontWeight='bold'>
-                    {user.firstName} {user.lastName}
-                    </Box>
-                    <Box>
-                        {user.username}
-                    </Box>
-                </Box>
-                <Box>
-
-                </Box>
-                <Box fontWeight='bold'>
-                    Available Jobs
-                </Box>
-                <Box
-                        w='100%'
-                        rounded='5px'
-                        overflow='hidden'
-                        boxShadow='sm'
-                        bg='gray.200'>
-                        
-                        <Box p={4}>
-                            <Stack inInLine align='baseline'>
-                                <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>Piano</Text>
-                            </Stack>
-                            <Text fontWeight='light' fontSize='md'>
-                                Discription of job, whatever mumbo jumbo you want to have here.
-                            </Text>
-                            
-                        </Box>
-                        <Stack my={4} direction={'row'} spacing={100} align={'center'}>
-                            <Stack direction={'column'} spacing={0} fontSize={'sm'}>
-                                <Text fontWeight={600}>Username</Text>
-                                <Text fontWeight={600}>First Last</Text>
-                                <Text color={'gray.500'}>Feb 05, 2022</Text>
-                            </Stack>
-                            <Stack direction={'column'} spacing={0} fontSize={'sm'}>
-                                <Text fontWeight={600}>Email: {user.email}</Text> 
-                                <Text color={'gray.500'}>Phone: {user.phoneNumber}</Text>
-                            </Stack>
-                        </Stack> 
-                    </Box> */}
-                {/* <Box>
-                    <Box fontWeight='bold'>
-                        FirstName LastName
-                    </Box>
-                    <Box>
-                        Username
-                    </Box>
-                </Box>
-                <Box>
-
-                </Box>
-                <Box fontWeight='bold'>
-                    Available Jobs
-                </Box>
-                <Box
-                        w='100%'
-                        rounded='5px'
-                        overflow='hidden'
-                        boxShadow='sm'
-                        bg='gray.200'>
-                        
-                        <Box p={4}>
-                            <Stack isInline align='baseline'>
-                                <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>Piano</Text>
-                            </Stack>
-                            <Text fontWeight='light' fontSize='md'>
-                                Discription of job, whatever mumbo jumbo you want to have here.
-                            </Text>
-                            
-                        </Box>
-                        <Stack my={4} direction={'row'} spacing={100} align={'center'}>
-                            <Stack direction={'column'} spacing={0} fontSize={'sm'}>
-                                <Text fontWeight={600}>Username</Text>
-                                <Text fontWeight={600}>First Last</Text>
-                                <Text color={'gray.500'}>Feb 05, 2022</Text>
-                            </Stack>
-                            <Stack direction={'column'} spacing={0} fontSize={'sm'}>
-                                <Text fontWeight={600}>Email</Text> 
-                                <Text color={'gray.500'}>555-555-5555</Text>
-                            </Stack>
-                        </Stack> 
-                    </Box> */}
+};

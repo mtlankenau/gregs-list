@@ -1,7 +1,5 @@
 import React from "react";
-import { Container, Box, Link, Flex, Heading, Wrap, Text, Stack, Button, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon,  Image, useBreakpointValue } from '@chakra-ui/react'
-import ButtonAnimated from "../components/buttonAnimated";
-import CreateJob from "./create-job";
+import { Container, Box, Link, Flex, Heading, Wrap, Text, Stack, Button, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon,  Image } from '@chakra-ui/react'
 import Auth from "../utils/auth";
 
 const jobData = [
@@ -80,7 +78,7 @@ const Home = ()=> {
                                     bg='blue.200'
                                     _hover={{bg: 'green.200'}}
                                 >
-                                    Post a Job or Gig
+                                    Create a new post
                                 </Button>
                                 ) : (
                                 <Button
