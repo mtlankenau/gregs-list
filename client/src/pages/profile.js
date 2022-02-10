@@ -1,4 +1,4 @@
-import { Box, Container, Stack, Text, Link, Button, Textarea, FormControl, Wrap, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon } from "@chakra-ui/react";
+import { Box, Container, Stack, Text, Link, Button, Heading, FormControl, Wrap, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/client";
@@ -31,16 +31,34 @@ export default function Profile () {
     }
         return(
             <>
-            <Container minW='80%' minH='100%'>
+            <Container minW='100%' minH='100%'>
                     <Stack spacing={8} justify='center' align='center' width='100%'>
                         {/* <Box w='100%' rounded='5px' overflow='hidden' boxShadow='sm' bg='gray.200' mb='5px'>
                             Image
                         </Box> */}
-                        <Box w='100%' rounded='5px' overflow='hidden' boxShadow='sm' bg='gray.200' mb='5px'>
+                        <Heading
+                                as="h1"
+                                size="xl"
+                                fontWeight="bold"
+                                color="primary.800"
+                                textAlign={["center", "center", "left", "left"]}
+                            >
                             Username: {user.username}
-                        </Box>
-                        <Box w='100%' rounded='5px' overflow='hidden' boxShadow='sm' bg='gray.200' mb='5px'>
+                        </Heading>
+                        <Heading
+                                as="h2"
+                                size="md"
+                                color="primary.800"
+                                opacity="0.8"
+                                fontWeight="normal"
+                                lineHeight={1.5}
+                                textAlign={["center", "center", "left", "left"]}
+                            >
                             Name: {user.firstName} {user.lastName}
+                        </Heading>
+                        
+                        <Box w='100%' rounded='5px' overflow='hidden' boxShadow='sm' bg='gray.200' mb='5px'>
+                            
                         </Box>
                             
                             {/* <FormControl textAlign='center'>

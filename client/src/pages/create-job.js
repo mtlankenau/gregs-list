@@ -6,7 +6,10 @@ import {InputGroup,
       FormControl,
       Stack,
       Button,
+      Image,
       Container,
+      Flex,
+      Box,
       Link,
       Text} from '@chakra-ui/react';
 import {  CheckCircleIcon, ChevronDownIcon, HamburgerIcon } from '@chakra-ui/icons';
@@ -83,7 +86,23 @@ export default function CreateJob () {
 
         return(
           <>
-
+          <Container minW='100%' minH='100%'>
+            <Flex justify='center' align='center' width='100%'
+              align="center"
+              // justify={{ base: "center", md: "space-around", xl: "space-between" }}
+              // direction={{ base: "column-reverse", md: "row" }}
+              // wrap="no-wrap"
+              // minH="60vh"
+              px={70}
+              mb={3}>
+              <Box w={{ base: "80%", sm: "60%", md: "50%" }} mb={{ base: 12, md: 0 }}>
+                <Image
+                  src={require("../assets/images/createJob.png")}
+                  size="300%" rounded="1rem" 
+                />
+              </Box>
+            </Flex>
+          </Container> 
           <Stack spacing={8} justify='center' align='center' isInline>
             <Stack direction={'column'}>
             <Text fontWeight={600}>Select Your Job/Gig Below:</Text>
