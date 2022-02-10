@@ -60,7 +60,8 @@ export default function SingleJob() {
                 </Link>
             <Wrap>
                 <Box
-                    minW='20%'
+                    maxW='445px'
+                    w='full'
                     rounded='5px'
                     overflow='hidden'
                     boxShadow={'2xl'}
