@@ -15,8 +15,8 @@
   
 
   # Installation
-  * INSTALL: npm install
-  * RUN: node index.js
+  * just visit: https://gregs-list-1.herokuapp.com/
+  
 
   # Usage
   Sign on and begin posting!
