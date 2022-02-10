@@ -10,6 +10,7 @@ import {InputGroup,
 	Stack,
 	Button} from '@chakra-ui/react';
 import { EditIcon, EmailIcon, PhoneIcon, LockIcon, SearchIcon } from '@chakra-ui/icons';
+import signUpValidator from '../utils/helpers';
   
 const formData = [
   { name: "First name", icon: EditIcon, signUp: 'firstName' },
@@ -42,12 +43,9 @@ const Signup = () => {
       [name]: value,
     });
     // if (name === 'phoneNumber') {
-    //   setSignUp({
-    //     ...signUp,
-    //     phoneNumber: formatPhoneNumber(value)
-    //   });
-    //   console.log(signUp.phoneNumber);
-    //   value = signUp.phoneNumber;
+    //   const pattern = /^(\([0-9]{3}\)|[0-9]{3}-)[0-9]{3}-[0-9]{4}$/;
+    //   const result = pattern.test(value)
+      
     // }
   };
 
@@ -55,6 +53,7 @@ const Signup = () => {
     event.preventDefault();
     
     try {
+      signUpValidator(signUp);
       const { data } = await addUser({
         variables: { ...signUp }
       });
@@ -118,8 +117,8 @@ const Signup = () => {
         <Button boxShadow='md' _active={{ boxShadow: 'lg' }} onClick={handleSignup} >
           Signup
         </Button>
+        {error && <div>{`hello`}</div>}
       </Stack>
-      {error && <div>Signup failed, try again!</div>}
     </FormControl>
   );
 };

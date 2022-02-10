@@ -9,7 +9,6 @@ import Auth from '../utils/auth';
 // import DeletePostButton from "../components/deletePostButton";
 
 export default function SingleJob() {
-    console.log(Auth.getProfile());
     const { username: username } = useParams();
     const { loading, data } = useQuery(GET_SINGLE_USER, {
         variables: { username }
