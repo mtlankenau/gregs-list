@@ -39,7 +39,8 @@ export default function CreateJob () {
     postDescription: ''
   });
 
-  const [jobType, setJobType] = useState('Job');
+  const [jobType, setJobType] = useState('');
+  const [catType, setCatType] = useState ('');
   const [availableCategories, setAvailableCategories] = useState({
     cat1: 'Music Lessons',
     cat2: 'Art Lessons',
@@ -61,6 +62,10 @@ export default function CreateJob () {
       if( name === 'postType') {
         setJobType(value);
         console.log(jobType);
+      }
+      if (name === 'postCategory') {
+        setCatType(value);
+        console.log(catType);
       }
       if (value === 'Job') {
         setAvailableCategories({
@@ -127,11 +132,14 @@ export default function CreateJob () {
           </Container> 
           <Stack spacing={8} justify='center' align='center' isInline>
             <Stack direction={'column'}>
-            <Text fontWeight={600}>Select Your Job/Gig Below:</Text>
+            {/* <Text fontWeight={600}>Select Your Job/Gig Below:</Text> */}
             
             <Menu  closeOnSelect={true}>
               <MenuButton as={Button} rightIcon={<ChevronDownIcon />} >
-                {jobType}
+                {jobType !== '' ?
+                  <Text>{jobType}</Text> : (
+                  <Text>Select Type:</Text>
+                )}
               </MenuButton>
               <MenuList placeholder='Select Post Type'>
                 <MenuItem onClick={handleChange} name='postType' value='Job'>Job</MenuItem>
@@ -140,10 +148,13 @@ export default function CreateJob () {
             </Menu>
             </Stack>
             <Stack direction='column'>
-            <Text fontWeight={600} >Select Your Category Below:</Text>
+            {/* <Text fontWeight={600} >Select Your Category Below:</Text> */}
             <Menu closeOnSelect={true}>
               <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-                {availableCategories.cat1}
+                {catType !== '' ?
+                  <Text>{catType}</Text> : (
+                  <Text>Select Category:</Text>
+                )}
               </MenuButton>
               <MenuList>
                 {jobType === 'Job' && 
