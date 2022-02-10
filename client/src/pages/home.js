@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Box, Link, Flex, Spacer, Wrap, Text, Stack, Button, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Heading, Image, useBreakpointValue } from '@chakra-ui/react'
+import { Container, Box, Link, Flex, Heading, Wrap, Text, Stack, Button, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon,  Image, useBreakpointValue } from '@chakra-ui/react'
 import ButtonAnimated from "../components/buttonAnimated";
 import CreateJob from "./create-job";
 import Auth from "../utils/auth";
@@ -8,7 +8,81 @@ const Home = ()=> {
 
         return(
             <Container minW='100%' minH='100%' >
-                <Box 
+                
+                <Flex
+                    direction='column'
+                    align='center'
+                    maxH={{ xl: "1200px" }}
+                    m="0 auto">
+                    <Flex
+                        align="center"
+                        justify={{ base: "center", md: "space-around", xl: "space-between" }}
+                        direction={{ base: "column-reverse", md: "row" }}
+                        wrap="no-wrap"
+                        minH="60vh"
+                        px={70}
+                        mb={3}
+                        
+                        >
+                        <Stack
+                            spacing={4}
+                            w={{ base: "80%", md: "40%" }}
+                            align={["center", "center", "flex-start", "flex-start"]}
+                        >
+                            <Heading
+                                as="h1"
+                                size="xl"
+                                fontWeight="bold"
+                                color="primary.800"
+                                textAlign={["center", "center", "left", "left"]}
+                            >
+                                Greg's List
+                            </Heading>
+                            <Heading
+                                as="h2"
+                                size="md"
+                                color="primary.800"
+                                opacity="0.8"
+                                fontWeight="normal"
+                                lineHeight={1.5}
+                                textAlign={["center", "center", "left", "left"]}
+                            >
+                                Welcome! Find a job or gig below. Even better, you can create one with us! Let's build our community together through the power of Greg
+                            </Heading>
+                                {Auth.loggedIn() ? (
+                                <Button
+                                    as={Link} href='/createJob'
+                                    variantColor="primary"
+                                    borderRadius="8px"
+                                    py="4"
+                                    px="4"
+                                    lineHeight="1"
+                                    size="md"
+                                >
+                                    Post a Job or Gig
+                                </Button>
+                                ) : (
+                                <Button
+                                    as={Link} href='/signup'
+                                    variantColor="primary"
+                                    borderRadius="8px"
+                                    py="4"
+                                    px="4"
+                                    lineHeight="1"
+                                    size="md"
+                                >
+                                    Create an Account
+                                </Button>
+                                )}
+                        </Stack>
+                        <Box w={{ base: "80%", sm: "60%", md: "50%" }} mb={{ base: 12, md: 0 }}>
+                            <Image src={require("../assets/images/jobpeople.jpg")} size="300%" rounded="1rem" shadow="2xl" />
+                        </Box>
+
+                    </Flex>
+                </Flex>
+            
+                {/* <Box 
                     h='200px'
                     // bg='pink.50'
                     rounded='5px' 
@@ -23,14 +97,14 @@ const Home = ()=> {
                             alt='Logo'/>
                 </Box> 
 
-                {/* CREATE JOB BUTTON AND OPTION FOR LOGGEDIN USERS */}
-                {Auth.loggedIn() &&
+                // {/* CREATE JOB BUTTON AND OPTION FOR LOGGEDIN USERS */}
+                {/* {Auth.loggedIn() &&
                     <Box rounded='5px' h='100px' w='100%' justifyContent='center'>
                         <Stack align='center' w='100%' justifyContent='center'>
                             <Button as={Link} href='/createJob' bg='gray.200' _hover={{bg:'green.300'}}>Post job - Click Here</Button>
                         </Stack>
                     </Box>
-                }
+                } */}
                 {/* JOBS SECTION */}
                 <Accordion allowToggle rounded='5px'>
                     <AccordionItem>
