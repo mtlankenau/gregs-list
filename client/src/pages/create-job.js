@@ -50,7 +50,9 @@ export default function CreateJob () {
         [name]: value,
       });
       console.log(postState);
-      setJobType(value);
+      if( name === 'postType') {
+        setJobType(value);
+      }
       console.log(jobType);
   };
 
@@ -85,7 +87,7 @@ export default function CreateJob () {
           <Stack spacing={8} justify='center' align='center' isInline>
             <Menu  closeOnSelect={true}>
               <MenuButton as={Button}>
-                Select Post Type
+                {jobType}
               </MenuButton>
               <MenuList>
                 <MenuItem onClick={handleChange} name='postType' value='Jobs'>Jobs</MenuItem>
@@ -94,7 +96,7 @@ export default function CreateJob () {
             </Menu>
             <Menu closeOnSelect={true}>
               <MenuButton as={Button}>
-                Select Post Category
+                {postState.postCategory}
               </MenuButton>
               <MenuList>
                 {jobType === 'Jobs' && 

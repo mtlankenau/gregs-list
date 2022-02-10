@@ -8,9 +8,10 @@ import {InputGroup,
   Icon,
 	FormControl,
 	Stack,
-	Button} from '@chakra-ui/react';
+	Button,
+  Text} from '@chakra-ui/react';
 import { EditIcon, EmailIcon, PhoneIcon, LockIcon, SearchIcon } from '@chakra-ui/icons';
-import signUpValidator from '../utils/helpers';
+import {signUpValidator, phoneFormat} from '../utils/helpers';
   
 const formData = [
   { name: "First name", icon: EditIcon, signUp: 'firstName' },
@@ -31,11 +32,15 @@ const Signup = () => {
     username: '',
     password: ''
   });
+  const [isValidForm, setIsValidForm] = useState(null);
 
   const [addUser, { error }] = useMutation(ADD_USER);
 
   const handleChange = (event) => {
     let { name, value } = event.target;
+    if (name === 'phoneNumber') {
+      value = phoneFormat(value);
+    }
     // console.log(name);
     // console.log(value);
     setSignUp({
@@ -62,7 +67,8 @@ const Signup = () => {
 
       Auth.login(data.addUser.token);
     } catch (e) {
-      console.error(e);
+      console.log(e)
+      setIsValidForm(e);
     }
   };
 
@@ -117,7 +123,7 @@ const Signup = () => {
         <Button boxShadow='md' _active={{ boxShadow: 'lg' }} onClick={handleSignup} >
           Signup
         </Button>
-        {error && <div>{`hello`}</div>}
+        {isValidForm && <div>{isValidForm.message}</div>}
       </Stack>
     </FormControl>
   );
