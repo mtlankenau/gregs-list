@@ -10,7 +10,13 @@ export default function Profile () {
     const { username: userParam } = useParams();
     console.log(userParam);
 
-    console.log(Auth.getProfile().data.username);
+    const testUser = () => {
+        if( Auth.loggedIn()) {
+            return Auth.getProfile().data.username;
+        } else {
+            return '';
+        }
+    }
 
     // const [bioText, setBioText] = useState('');
 
@@ -46,10 +52,11 @@ export default function Profile () {
                                 color="primary.800"
                                 textAlign={["center", "center", "left", "left"]}
                             >
-                            {Auth.getProfile().data.username === userParam ? 
-                             <Text> Your Username: {user.username}</Text>: (
-                                 <Text>Username: {user.username}</Text>
+                                {testUser() === userParam ? 
+                                <Text> Welcome to your profile {user.firstName} {user.lastName}!</Text>: (
+                                <Text>You are viewing {user.username}'s profile!</Text>
                              )}
+                                 <Text>Username: {user.username}</Text>
                            
                         </Heading>
                         <Heading
@@ -61,7 +68,7 @@ export default function Profile () {
                                 lineHeight={1.5}
                                 textAlign={["center", "center", "left", "left"]}
                             >
-                            {Auth.getProfile().data.username === userParam ? 
+                            {testUser() === userParam ? 
                                 <Text> Welcome to your profile {user.firstName} {user.lastName}!</Text>: (
                                 <Text>You are viewing {user.username}'s profile!</Text>
                              )}
@@ -134,7 +141,7 @@ export default function Profile () {
                                 fontSize='2xl'
                                 fontWeight='600'
                                 >
-                                {Auth.getProfile().data.username === userParam ?
+                                {testUser() === userParam ?
                                     <Text>Your posts</Text>: (
                                     <Text>{userParam}'s posts</Text>
                                 )}
