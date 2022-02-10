@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Box, Flex, Stack, Button, Link } from '@chakra-ui/react';
+import { Box, Flex, Stack, Button, Link, Image, Spacer } from '@chakra-ui/react';
 import Auth from '../utils/auth';
 
 const NavBar = () => {
@@ -9,50 +9,41 @@ const NavBar = () => {
   };
   
   return (
-     <Flex justify='space-around'>
-        <Box pb={8}>
-          <Stack spacing={8} justify='center' align='center' isInline>
-            <Button position='relative' variant='outline'>
-                <Link href='/'>Home</Link>
-            </Button>
+     <Flex direction='row' >
+        <Box pb={8} mt='10px' w='70px'>
+          <Stack  direction='row'>
+                  <Image align='left'
+                      height='50'
+                      width='50'
+                      src={require('../assets/images/logo.jpg')}
+                      alt='Logo'/>
+            </Stack>
+          </Box>
+        <Spacer />
+        <Box pb={8} mt='10px' >
+        <Stack  spacing={10} direction='row'>
+            <Button as={Link} href='/' position='relative' variant='outline' border='2px' borderColor='blue.200'>
+              Home
+            </Button> 
             {Auth.loggedIn() ? (
               <>
-              <Button position='relative' variant='outline' >
-                <Link  href={`/profile/${Auth.getProfile().data.username}`}>Profile</Link>
+              <Button as={Link} href={`/profile/${Auth.getProfile().data.username}`} position='relative' variant='outline' border='2px' borderColor='blue.200'>
+                Profile
               </Button>
-              <Button position='relative' variant='outline' >
-                <Link  href='/' onClick={logout}>Logout</Link>
+              <Button as={Link} href='/' onClick={logout} position='relative' variant='outline' border='2px' borderColor='blue.200'>
+                Logout
               </Button>
               </>
             ) : (
               <>
-              <Button position='relative' variant='outline' >
-                <Link  href='/login'>Login</Link>
+              <Button as={Link} href='/login' position='relative' variant='outline' border='2px' borderColor='blue.200'>
+                Login
               </Button>
-                <Button position='relative' variant='outline'>
-                  <Link href='/signup'>
+              <Button as={Link} href='/signup' position='relative' variant='outline' border='2px' borderColor='blue.200'>
                     Signup
-                  </Link>
               </Button>
               </>
             )}
-            {/* <Button position='relative' variant='outline'>
-              <Link href='/home'>Home</Link>
-            </Button>
-            <Button as={Link} href='/createJob' position='relative' variant='outline'>
-                Post Job
-            </Button>
-            <Button as={Link} href='/login' position='relative' variant='outline' >
-              Login
-            </Button>
-            <Button as={Link} href='/signup' position='relative' variant='outline'>
-                Signup
-            </Button>
-            <Button as={Link} href='/profile' position='relative' variant='outline'>
-                Profile
-            </Button>
-              </Link>
-            </Button> */}
           </Stack>
         </Box>
       </Flex>
