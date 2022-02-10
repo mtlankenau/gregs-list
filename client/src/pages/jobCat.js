@@ -1,8 +1,9 @@
 import React from "react";
-import {Container, Box, Wrap, Stack, Text, Link, Button, } from "@chakra-ui/react";
+import {Container, Box, Wrap, Stack, Text, Link, Button, Center} from "@chakra-ui/react";
 import { useParams } from 'react-router-dom';
 import {GET_POST_BY_CATEGORY} from '../utils/queries';
 import {useQuery} from '@apollo/client';
+import { graphqlSync } from "graphql";
 
 export default function JobCat() {
 
@@ -22,10 +23,11 @@ export default function JobCat() {
                <Box>
                    {/* {posts.postByCat.postTitle} Category: {postCategory} */}
                </Box>
-               <Wrap>
+               <Wrap py={5}>
                    {posts.length === 0 &&
                        <Box>No posts have been made for this category yet!</Box>
                    }
+                    <Box fontSize='2xl' bg='green.200' borderRadius={10} p={4} border='2px' borderColor='gray.400'>Category: {postCategory}</Box>
                    {posts.map((post) => (
                     <Box
                         w='100%'
@@ -36,7 +38,9 @@ export default function JobCat() {
                         p={6}
                         key={post._id}
                         as={Link}
-                        href={`/single-job/${post.username}/${post._id}`}>
+                        href={`/single-job/${post.username}/${post._id}`}
+                        border='2px'
+                        borderColor='gray.400'>
                         
                         <Box p={4}>
                             <Stack align='baseline'>

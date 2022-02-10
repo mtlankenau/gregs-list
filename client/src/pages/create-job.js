@@ -200,7 +200,7 @@ export default function CreateJob () {
               ))}
               <Textarea placeholder='Description' name='postDescription' value={postState.postDescription} onChange={handleChange, handleCharacterChange} />
               <Text>Character Count: {characterCount}/280</Text>
-              <Button as={Link} href='/ 'boxShadow='md' _active={{ boxShadow: 'lg' }} onClick={handlePostSubmit}>
+              <Button as={Link} href='/ 'boxShadow='md' _active={{ boxShadow: 'lg' }} _hover={{bg: 'green.200'}} onClick={handlePostSubmit} bg='blue.200' alignSelf='center' maxW='50%' minW='50%'>
                 Post!
               </Button>
             </Stack>

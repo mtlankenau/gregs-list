@@ -126,7 +126,7 @@ const Signup = () => {
             />
           </InputGroup>
         ))}
-        <Button bg='blue.200' boxShadow='md' _active={{ boxShadow: 'lg' }} _hover={{bg: 'green.200'}} onClick={handleSignup} >
+        <Button bg='blue.200' boxShadow='md' _active={{ boxShadow: 'lg' }} _hover={{bg: 'green.200'}} onClick={handleSignup} alignSelf='center' maxW='50%' minW='50%'>
           Signup
         </Button>
         {isValidForm && <div>{isValidForm.message}</div>}
