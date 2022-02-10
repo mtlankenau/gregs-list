@@ -52,7 +52,8 @@ export default function CreateJob () {
         ...postState,
         [name]: value,
       });
-      if(name === 'postType') {
+      console.log(postState);
+      if( name === 'postType') {
         setJobType(value);
       }
       console.log(jobType);

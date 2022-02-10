@@ -9,8 +9,10 @@ import {InputGroup,
 	FormControl,
 	Stack,
 	Button,
-  Flex } from '@chakra-ui/react';
+  Flex,
+  Text } from '@chakra-ui/react';
 import { EditIcon, EmailIcon, PhoneIcon, LockIcon, SearchIcon } from '@chakra-ui/icons';
+import {signUpValidator, phoneFormat} from '../utils/helpers';
   
 const formData = [
   { name: "First name", icon: EditIcon, signUp: 'firstName' },
@@ -31,11 +33,15 @@ const Signup = () => {
     username: '',
     password: ''
   });
+  const [isValidForm, setIsValidForm] = useState(null);
 
   const [addUser, { error }] = useMutation(ADD_USER);
 
   const handleChange = (event) => {
     let { name, value } = event.target;
+    if (name === 'phoneNumber') {
+      value = phoneFormat(value);
+    }
     // console.log(name);
     // console.log(value);
     setSignUp({
@@ -43,12 +49,9 @@ const Signup = () => {
       [name]: value,
     });
     // if (name === 'phoneNumber') {
-    //   setSignUp({
-    //     ...signUp,
-    //     phoneNumber: formatPhoneNumber(value)
-    //   });
-    //   console.log(signUp.phoneNumber);
-    //   value = signUp.phoneNumber;
+    //   const pattern = /^(\([0-9]{3}\)|[0-9]{3}-)[0-9]{3}-[0-9]{4}$/;
+    //   const result = pattern.test(value)
+      
     // }
   };
 
@@ -56,6 +59,7 @@ const Signup = () => {
     event.preventDefault();
     
     try {
+      signUpValidator(signUp);
       const { data } = await addUser({
         variables: { ...signUp }
       });
@@ -64,7 +68,8 @@ const Signup = () => {
 
       Auth.login(data.addUser.token);
     } catch (e) {
-      console.error(e);
+      console.log(e)
+      setIsValidForm(e);
     }
   };
 
@@ -124,10 +129,9 @@ const Signup = () => {
         <Button bg='blue.200' boxShadow='md' _active={{ boxShadow: 'lg' }} _hover={{bg: 'green.200'}} onClick={handleSignup} >
           Signup
         </Button>
+        {isValidForm && <div>{isValidForm.message}</div>}
       </Stack>
       </Flex>
-      {/* </Flex> */}
-      {error && <div>Signup failed, try again!</div>}
     </FormControl>
   );
 };
