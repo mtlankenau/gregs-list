@@ -3,11 +3,14 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_SINGLE_USER } from "../utils/queries";
+import Auth from '../utils/auth';
 
 export default function Profile () {
 
     const { username: userParam } = useParams();
     console.log(userParam);
+
+    console.log(Auth.getProfile().data.username);
 
     // const [bioText, setBioText] = useState('');
 
@@ -43,7 +46,11 @@ export default function Profile () {
                                 color="primary.800"
                                 textAlign={["center", "center", "left", "left"]}
                             >
-                            Username: {user.username}
+                            {Auth.getProfile().data.username === userParam ? 
+                             <Text> Your Username: {user.username}</Text>: (
+                                 <Text>Username: {user.username}</Text>
+                             )}
+                           
                         </Heading>
                         <Heading
                                 as="h2"
@@ -105,7 +112,11 @@ export default function Profile () {
                                 pb={8}
                                 fontSize='2xl'
                                 fontWeight='600'
-                                >Your posts
+                                >
+                                {Auth.getProfile().data.username === userParam ?
+                                    <Text>Your posts</Text>: (
+                                    <Text>{userParam}'s posts</Text>
+                                )}
                             </Box>
                             <AccordionIcon />
                         </AccordionButton>

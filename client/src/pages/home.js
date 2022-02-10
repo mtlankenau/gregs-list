@@ -66,7 +66,6 @@ const Home = ()=> {
                                 {Auth.loggedIn() ? (
                                 <Button
                                     as={Link} href='/createJob'
-                                    variantColor="primary"
                                     borderRadius="8px"
                                     p={5}
                                     lineHeight="1"
@@ -143,7 +142,8 @@ const Home = ()=> {
                                     rounded='5px'
                                     overflow='hidden'
                                     boxShadow='sm'
-                                    bg='gray.200'>
+                                    bg='gray.200'
+                                    key={job.title}>
                                     
                                         <Box p={5}>
                                             <Stack isInline align='baseline'>
@@ -185,7 +185,8 @@ const Home = ()=> {
                                         rounded='5px'
                                         overflow='hidden'
                                         boxShadow='sm'
-                                        bg='gray.200'>
+                                        bg='gray.200'
+                                        key={gig.title}>
                                     
                                             <Box p={5}>
                                                 <Stack isInline align='baseline'>

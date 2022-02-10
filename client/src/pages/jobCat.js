@@ -60,7 +60,7 @@ export default function JobCat() {
                             <Stack  direction={'column'} spacing={0} fontSize={'sm'} >
                                 <Text fontWeight={600}>${post.postPrice}</Text>
                             </Stack>
-                            <Stack direction={'row '} spacing={0} fontSize={'sm'} >
+                            <Stack direction={'column'} spacing={0} fontSize={'sm'} >
                                 <Text fontWeight={600}>Posted by: {post.username}</Text>
                                 <Text color={'gray.500'}> @ {post.createdAt}</Text>
                                 </Stack>

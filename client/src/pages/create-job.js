@@ -33,14 +33,19 @@ export default function CreateJob () {
 
   const [postState, setPostState] = useState({
     postType: '',
-    postCategory: 'Music Lessons',
+    postCategory: '',
     postTitle: '',
     postPrice: '',
     postDescription: ''
   });
 
-  const [jobType, setJobType] = useState('Jobs');
-  // const [availableCategories, setAvailableCategories] = useState({})
+  const [jobType, setJobType] = useState('Job');
+  const [availableCategories, setAvailableCategories] = useState({
+    cat1: 'Music Lessons',
+    cat2: 'Art Lessons',
+    cat3: 'Garden',
+    cat4: 'Website Design'
+  });
 
   const [characterCount, setCharacterCount] = useState(0);
 
@@ -55,8 +60,24 @@ export default function CreateJob () {
       console.log(postState);
       if( name === 'postType') {
         setJobType(value);
+        console.log(jobType);
       }
-      console.log(jobType);
+      if (value === 'Job') {
+        setAvailableCategories({
+          cat1: 'Music Lessons',
+          cat2: 'Art Lessons',
+          cat3: 'Garden',
+          cat4: 'Website Design'
+        });
+      }
+      if (value === 'Gig') {
+        setAvailableCategories({
+          cat1: 'Writing',
+          cat2: 'Creative',
+          cat3: 'Talent',
+          cat4: 'Labor'
+        });
+      }
   };
 
   const handleCharacterChange = (event) => {
@@ -113,8 +134,8 @@ export default function CreateJob () {
                 {jobType}
               </MenuButton>
               <MenuList placeholder='Select Post Type'>
-                <MenuItem onClick={handleChange} name='postType' value='Jobs'>Jobs</MenuItem>
-                <MenuItem onClick={handleChange} name='postType' value='Gigs'>Gigs</MenuItem>
+                <MenuItem onClick={handleChange} name='postType' value='Job'>Job</MenuItem>
+                <MenuItem onClick={handleChange} name='postType' value='Gig'>Gig</MenuItem>
               </MenuList>
             </Menu>
             </Stack>
@@ -122,23 +143,23 @@ export default function CreateJob () {
             <Text fontWeight={600} >Select Your Category Below:</Text>
             <Menu closeOnSelect={true}>
               <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-                {postState.postCategory}
+                {availableCategories.cat1}
               </MenuButton>
               <MenuList>
-                {jobType === 'Jobs' && 
+                {jobType === 'Job' && 
                 <>
-                <MenuItem onClick={handleChange} name='postCategory' value='Music Lessons'>Music Lessons</MenuItem>
-                <MenuItem onClick={handleChange} name='postCategory' value='Art Lessons'>Art Lessons</MenuItem>
-                <MenuItem onClick={handleChange} name='postCategory' value='Garden'>Garden</MenuItem>
-                <MenuItem onClick={handleChange} name='postCategory' value='Website Design'>Website Design</MenuItem>
+                <MenuItem onClick={handleChange} name='postCategory' value={availableCategories.cat1}>{availableCategories.cat1}</MenuItem>
+                <MenuItem onClick={handleChange} name='postCategory' value={availableCategories.cat2}>{availableCategories.cat2}</MenuItem>
+                <MenuItem onClick={handleChange} name='postCategory' value={availableCategories.cat3}>{availableCategories.cat3}</MenuItem>
+                <MenuItem onClick={handleChange} name='postCategory' value={availableCategories.cat4}>{availableCategories.cat4}</MenuItem>
                 </>
                 }
-                {jobType === 'Gigs' &&
+                {jobType === 'Gig' &&
                 <>
-                  <MenuItem onClick={handleChange} name='postCategory' value='Writing'>Writing</MenuItem>
-                  <MenuItem onClick={handleChange} name='postCategory' value='Creative'>Creative</MenuItem>
-                  <MenuItem onClick={handleChange} name='postCategory' value='Talent'>Talent</MenuItem>
-                  <MenuItem onClick={handleChange} name='postCategory' value='Labor'>Labor</MenuItem>
+                  <MenuItem onClick={handleChange} name='postCategory' value={availableCategories.cat1}>{availableCategories.cat1}</MenuItem>
+                  <MenuItem onClick={handleChange} name='postCategory' value={availableCategories.cat2}>{availableCategories.cat2}</MenuItem>
+                  <MenuItem onClick={handleChange} name='postCategory' value={availableCategories.cat3}>{availableCategories.cat3}</MenuItem>
+                  <MenuItem onClick={handleChange} name='postCategory' value={availableCategories.cat4}>{availableCategories.cat4}</MenuItem>
                 </>
                 }
                 

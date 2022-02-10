@@ -1,6 +1,6 @@
 import { Container, Box, Center, Heading, Wrap, Stack, Text, Button, Link} from "@chakra-ui/react";
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Redirect, useParams } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_SINGLE_POST, GET_SINGLE_USER } from "../utils/queries";
 import { DELETE_POST } from "../utils/mutations";
@@ -107,7 +107,9 @@ export default function SingleJob() {
                             <Link href={`/profile/${user.username}`} fontSize='sm'>User: {user.username} </Link>
                         </Button>
                         {testUser() === username ?
-                            <Button bg="gray.500" _hover={{bg: 'red'}} color="white"  onClick={handleDelete}>Delete Post</Button> : null
+                            <Button bg="gray.500" _hover={{bg: 'red'}} color="white">
+                                <Link onClick={handleDelete} href={`/profile/${user.username}`}>Delete Post</Link>
+                            </Button> : null
                         }
                         </Stack>
                     </Stack>
