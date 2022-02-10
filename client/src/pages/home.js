@@ -16,7 +16,14 @@ const gigData = [
     { title: 'Creative', description: 'Have a knack for unique creativity? See who might need your fresh creative perspective!' },
     { title: 'Talent', description: 'Do you have a talent strange enough to stand out from the rest? Find others who need that unicyclist!' },
     { title: 'Labor', description: 'Trying to use some powertools and add another layer of callus to those fingers? See who needs a hard-worker!' }
-]
+];
+
+const servicesData = [
+    { title: 'Automotive', description: "Don't know how to fix a flat tire or change your oil? Don't worry, find some help here!" },
+    { title: 'Legal', description: "Are you in legal trouble? Need another set of experienced eyes on some legal documents? See who may be able to help!" },
+    { title: 'Household', description: "Need house cleaning services, or has that old water heater finally given out? See if you can find help here! " },
+    { title: 'Pets', description: "Pets are challenging - it's okay to look for help! Find your next sitter, dog walker, or cat whisperer!" }
+];
 
 const Home = ()=> {
 
@@ -199,75 +206,51 @@ const Home = ()=> {
                                             </Box> 
                                         </Box>
                                 ))}
-                                {/* <Box
-                                    w='400px'
-                                    rounded='5px'
-                                    overflow='hidden'
-                                    boxShadow='sm'
-                                    bg='gray.200'>
-                                    
-                                    <Box p={5}>
-                                        <Stack isInline align='baseline'>
-                                            <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>Writing</Text>
-                                        </Stack>
-                                        <Text fontWeight='light' fontSize='md'>
-                                            Need a short story written? A written profile for a magazine? Find others who could use your writing skills here!
-                                        </Text>
-                                        <Button as={Link} href='/jobCat/Writing' variant='outline' bgColor='green.200' size='md' mt={3} >Find</Button>
-                                    </Box> 
-                                </Box>
-                                <Box
-                                    w='400px'
-                                    rounded='5px'
-                                    overflow='hidden'
-                                    boxShadow='sm'
-                                    bg='gray.200'>
-                                    
-                                    <Box p={5}>
-                                        <Stack isInline align='baseline'>
-                                            <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>Creative</Text>
-                                        </Stack>
-                                        <Text fontWeight='light' fontSize='md'>
-                                            Have a knack for unique creativity? See who might need your fresh creative perspective!
-                                        </Text>
-                                        <Button as={Link} href='/jobCat/Creative' variant='outline' bgColor='green.200' size='md' mt={3} >Find</Button>
-                                    </Box> 
-                                </Box>
-                                <Box
-                                    w='400px'
-                                    rounded='5px'
-                                    overflow='hidden'
-                                    boxShadow='sm'
-                                    bg='gray.200'>
-                                    
-                                    <Box p={5}>
-                                        <Stack isInline align='baseline'>
-                                            <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>Talent</Text>
-                                        </Stack>
-                                        <Text fontWeight='light' fontSize='md'>
-                                            Do you have a talent strange enough to stand out from the rest? Find others who need that unicyclist!
-                                        </Text>
-                                        <Button as={Link} href='/jobCat/Talent' variant='outline' bgColor='green.200' size='md' mt={3} >Find</Button>
-                                    </Box> 
-                                </Box>
-                                <Box
-                                    w='400px'
-                                    rounded='5px'
-                                    overflow='hidden'
-                                    boxShadow='sm'
-                                    bg='gray.200'>
-                                    
-                                    <Box p={5}>
-                                        <Stack isInline align='baseline'>
-                                            <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>Labor</Text>
-                                        </Stack>
-                                        <Text fontWeight='light' fontSize='md'>
-                                            Trying to use some powertools and add another layer of callus to those fingers? See who needs a hard-worker!
-                                        </Text>
-                                        <Button as={Link} href='/jobCat/Labor' variant='outline' bgColor='green.200' size='md' mt={3} >Find</Button>
-                                    </Box> 
-                                </Box> */}
+                                
                             </Wrap>
+                        </AccordionPanel>
+                    </AccordionItem>
+                </Accordion>
+
+                {/* SERVICES SECTION */}
+                <Accordion allowToggle>
+                    <AccordionItem>
+                        <h2>
+                            <AccordionButton>
+                                <Box 
+                                    bg='white' 
+                                    w='100%'
+                                    fontSize='xl'
+                                    pt={8}
+                                    pb={8} 
+                                    >Services
+                                </Box>
+                                <AccordionIcon />
+                            </AccordionButton>
+                        </h2>
+                        <AccordionPanel pb={4}>
+                            <Wrap>
+                                {servicesData.map((service) => (
+                                        <Box
+                                        w='400px'
+                                        rounded='5px'
+                                        overflow='hidden'
+                                        boxShadow='sm'
+                                        bg='gray.200'
+                                        key={service.title}>
+                                    
+                                            <Box p={5}>
+                                                <Stack isInline align='baseline'>
+                                                    <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>{service.title}</Text>
+                                                </Stack>
+                                                <Text fontWeight='light' fontSize='md'>
+                                                    {service.description}
+                                                </Text>
+                                                <Button as={Link} href={`/jobCat/${service.title}`} variant='outline' bg='blue.200' _hover={{bg: 'green.200'}} size='md' mt={3} >Find</Button>
+                                            </Box> 
+                                        </Box>
+                                ))}
+                                </Wrap>
                         </AccordionPanel>
                     </AccordionItem>
                 </Accordion>

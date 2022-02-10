@@ -11,7 +11,8 @@ import {InputGroup,
       Flex,
       Box,
       Link,
-      Text} from '@chakra-ui/react';
+      Text,
+      FormErrorMessage } from '@chakra-ui/react';
 import {  CheckCircleIcon, ChevronDownIcon, HamburgerIcon } from '@chakra-ui/icons';
 import { Textarea } from '@chakra-ui/react'
 import {
@@ -73,16 +74,24 @@ export default function CreateJob () {
           cat2: 'Art Lessons',
           cat3: 'Garden',
           cat4: 'Website Design'
-        });
-      }
+          });
+        }
       if (value === 'Gig') {
         setAvailableCategories({
           cat1: 'Writing',
           cat2: 'Creative',
           cat3: 'Talent',
           cat4: 'Labor'
-        });
-      }
+          });
+        }
+        if (value === 'Service') {
+          setAvailableCategories({
+            cat1: 'Automotive',
+            cat2: 'Legal',
+            cat3: 'Household',
+            cat4: 'Pets'
+            });
+        }
   };
 
   const handleCharacterChange = (event) => {
@@ -105,7 +114,10 @@ export default function CreateJob () {
       });
       console.log(data);
       
+      if (data) {
         return <Redirect to='/' />
+      }
+      // return <Redirect to='/' />
     } catch (e) {
       console.error(e);
     }
@@ -113,7 +125,7 @@ export default function CreateJob () {
 
         return(
           <>
-          <Container minW='100%' minH='100%'>
+          <Container minW='100%' minH='100%' isInvalid={error}>
             <Flex justify='center' align='center' width='100%'
               align="center"
               px={70}
@@ -140,6 +152,7 @@ export default function CreateJob () {
               <MenuList placeholder='Select Post Type'>
                 <MenuItem onClick={handleChange} name='postType' value='Job'>Job</MenuItem>
                 <MenuItem onClick={handleChange} name='postType' value='Gig'>Gig</MenuItem>
+                <MenuItem onClick={handleChange} name='postType' value='Service'>Service</MenuItem>
               </MenuList>
             </Menu>
             </Stack>
@@ -162,6 +175,14 @@ export default function CreateJob () {
                 </>
                 }
                 {jobType === 'Gig' &&
+                <>
+                  <MenuItem onClick={handleChange} name='postCategory' value={availableCategories.cat1}>{availableCategories.cat1}</MenuItem>
+                  <MenuItem onClick={handleChange} name='postCategory' value={availableCategories.cat2}>{availableCategories.cat2}</MenuItem>
+                  <MenuItem onClick={handleChange} name='postCategory' value={availableCategories.cat3}>{availableCategories.cat3}</MenuItem>
+                  <MenuItem onClick={handleChange} name='postCategory' value={availableCategories.cat4}>{availableCategories.cat4}</MenuItem>
+                </>
+                }
+                {jobType === 'Service' &&
                 <>
                   <MenuItem onClick={handleChange} name='postCategory' value={availableCategories.cat1}>{availableCategories.cat1}</MenuItem>
                   <MenuItem onClick={handleChange} name='postCategory' value={availableCategories.cat2}>{availableCategories.cat2}</MenuItem>
@@ -203,6 +224,11 @@ export default function CreateJob () {
               <Button as={Link} href='/ 'boxShadow='md' _active={{ boxShadow: 'lg' }} _hover={{bg: 'green.200'}} onClick={handlePostSubmit} bg='blue.200' alignSelf='center' maxW='50%' minW='50%'>
                 Post!
               </Button>
+              {error && 
+              <Stack align='center'>
+                <FormErrorMessage textAlign='center' fontWeight='600' fontSize='2xl'>Post failed, please try again!</FormErrorMessage>
+              </Stack>
+            }
             </Stack>
             </Flex>
           </FormControl>

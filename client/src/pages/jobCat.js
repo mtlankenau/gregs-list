@@ -3,7 +3,6 @@ import {Container, Box, Wrap, Stack, Text, Link, Button, Center} from "@chakra-u
 import { useParams } from 'react-router-dom';
 import {GET_POST_BY_CATEGORY} from '../utils/queries';
 import {useQuery} from '@apollo/client';
-import { graphqlSync } from "graphql";
 
 export default function JobCat() {
 
@@ -24,9 +23,6 @@ export default function JobCat() {
                    {/* {posts.postByCat.postTitle} Category: {postCategory} */}
                </Box>
                <Wrap py={5}>
-                   {posts.length === 0 &&
-                       <Box>No posts have been made for this category yet!</Box>
-                   }
                     <Box fontSize='2xl' bg='green.200' borderRadius={10} p={4} border='2px' borderColor='gray.400'>Category: {postCategory}</Box>
                    {posts.map((post) => (
                     <Box
@@ -72,6 +68,12 @@ export default function JobCat() {
                     </Box>
                    ))}
                 </Wrap>
+                {posts.length === 0 &&
+                        <>
+                       <Box alignSelf='center' fontSize={30} pb={4}>No posts have been made for the {postCategory} category yet!</Box>
+                       <Button as={Link} mb={5} href={`/CreateJob`}>CLICK HERE TO CREATE A POST!</Button>
+                       </>
+                   }
            </Container>
         );
 }
