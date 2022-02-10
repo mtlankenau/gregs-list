@@ -4,6 +4,20 @@ import ButtonAnimated from "../components/buttonAnimated";
 import CreateJob from "./create-job";
 import Auth from "../utils/auth";
 
+const jobData = [
+    { title: 'Music Lessons', description: 'Local music lessons from the people within your community. Video lessons are also available!' },
+    { title: 'Art Lessons', description: 'Local art lessons from the people within your community. Video lessons are also available!' },
+    { title: 'Garden', description: "Let's grow a garden together bro. Idk." },
+    { title: 'Website Design', description: "Couldn't tell you a thing about this one." }
+];
+
+const gigData = [
+    { title: 'Writing', description: 'Need a short story written? A written profile for a magazine? Find others who could use your writing skills here!' },
+    { title: 'Creative', description: 'Have a knack for unique creativity? See who might need your fresh creative perspective!' },
+    { title: 'Talent', description: 'Do you have a talent strange enough to stand out from the rest? Find others who need that unicyclist!' },
+    { title: 'Labor', description: 'Trying to use some powertools and add another layer of callus to those fingers? See who needs a hard-worker!' }
+]
+
 const Home = ()=> {
 
         return(
@@ -58,6 +72,8 @@ const Home = ()=> {
                                     px="4"
                                     lineHeight="1"
                                     size="md"
+                                    bg='blue.200'
+                                    _hover={{bg: 'green.200'}}
                                 >
                                     Post a Job or Gig
                                 </Button>
@@ -122,74 +138,25 @@ const Home = ()=> {
                         </h2>
                         <AccordionPanel pb={4}>
                             <Wrap>
-                                <Box
+                                {jobData.map((job) => (
+                                    <Box
                                     w='400px'
                                     rounded='5px'
                                     overflow='hidden'
                                     boxShadow='sm'
                                     bg='gray.200'>
                                     
-                                    <Box p={5}>
-                                        <Stack isInline align='baseline'>
-                                            <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>Music Lessons</Text>
-                                        </Stack>
-                                        <Text fontWeight='light' fontSize='md'>
-                                            Local music lessons from the people within your community. Video lessons are also available!
-                                        </Text>
-                                        <Button as={Link} href='/jobCat/Music Lessons' variant='outline' bgColor='green.200' size='md' mt={3} >Find</Button>
-                                    </Box> 
-                                </Box>
-                                <Box
-                                    w='400px'
-                                    rounded='5px'
-                                    overflow='hidden'
-                                    boxShadow='sm'
-                                    bg='gray.200'>
-                                    
-                                    <Box p={5}>
-                                        <Stack isInline align='baseline'>
-                                            <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>Art Lessons</Text>
-                                        </Stack>
-                                        <Text fontWeight='light' fontSize='md'>
-                                            Local art lessons from the people within your community. Video lessons are also available!
-                                        </Text>
-                                        <Button as={Link} href='/jobCat/Art Lessons' variant='outline' bgColor='green.200' size='md' mt={3} >Find</Button>
-                                    </Box> 
-                                </Box>
-                                <Box
-                                    w='400px'
-                                    rounded='5px'
-                                    overflow='hidden'
-                                    boxShadow='sm'
-                                    bg='gray.200'>
-                                    
-                                    <Box p={5}>
-                                        <Stack isInline align='baseline'>
-                                            <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>Garden</Text>
-                                        </Stack>
-                                        <Text fontWeight='light' fontSize='md'>
-                                            Let's grow a garden together bro. Idk.
-                                        </Text>
-                                        <Button as={Link} href='/jobCat/Garden' variant='outline' bgColor='green.200' size='md' mt={3} >Find</Button>
-                                    </Box> 
-                                </Box>
-                                <Box
-                                    w='400px'
-                                    rounded='5px'
-                                    overflow='hidden'
-                                    boxShadow='sm'
-                                    bg='gray.200'>
-                                    
-                                    <Box p={5}>
-                                        <Stack isInline align='baseline'>
-                                            <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>Website Design</Text>
-                                        </Stack>
-                                        <Text fontWeight='light' fontSize='md'>
-                                            Couldn't tell you a thing about this one.
-                                        </Text>
-                                        <Button as={Link} href='/jobCat/Website Design' variant='outline' bgColor='green.200' size='md' mt={3} >Find</Button>
-                                    </Box> 
-                                </Box>
+                                        <Box p={5}>
+                                            <Stack isInline align='baseline'>
+                                                <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>{job.title}</Text>
+                                            </Stack>
+                                            <Text fontWeight='light' fontSize='md'>
+                                                {job.description}
+                                            </Text>
+                                            <Button as={Link} href={`/jobCat/${job.title}`} variant='outline' bgColor='blue.200' _hover={{bg: 'green.200'}} size='md' mt={3} >Find</Button>
+                                        </Box> 
+                                    </Box>
+                                ))}
                             </Wrap>
                         </AccordionPanel>
                     </AccordionItem>
@@ -212,7 +179,26 @@ const Home = ()=> {
                         </h2>
                         <AccordionPanel pb={4}>
                             <Wrap>
-                                <Box
+                                {gigData.map((gig) => (
+                                        <Box
+                                        w='400px'
+                                        rounded='5px'
+                                        overflow='hidden'
+                                        boxShadow='sm'
+                                        bg='gray.200'>
+                                    
+                                            <Box p={5}>
+                                                <Stack isInline align='baseline'>
+                                                    <Text as='h2' fontWeight='semibold' fontSize='xl' my={2}>{gig.title}</Text>
+                                                </Stack>
+                                                <Text fontWeight='light' fontSize='md'>
+                                                    {gig.description}
+                                                </Text>
+                                                <Button as={Link} href={`/jobCat/${gig.title}`} variant='outline' bgColor='blue.200' _hover={{bg: 'green.200'}} size='md' mt={3} >Find</Button>
+                                            </Box> 
+                                        </Box>
+                                ))}
+                                {/* <Box
                                     w='400px'
                                     rounded='5px'
                                     overflow='hidden'
@@ -279,7 +265,7 @@ const Home = ()=> {
                                         </Text>
                                         <Button as={Link} href='/jobCat/Labor' variant='outline' bgColor='green.200' size='md' mt={3} >Find</Button>
                                     </Box> 
-                                </Box>
+                                </Box> */}
                             </Wrap>
                         </AccordionPanel>
                     </AccordionItem>

@@ -8,7 +8,8 @@ import {InputGroup,
   Icon,
 	FormControl,
 	Stack,
-	Button} from '@chakra-ui/react';
+	Button,
+  Flex } from '@chakra-ui/react';
 import { EditIcon, EmailIcon, PhoneIcon, LockIcon, SearchIcon } from '@chakra-ui/icons';
   
 const formData = [
@@ -98,8 +99,13 @@ const Signup = () => {
   // }
 
   return (
-    <FormControl textAlign='center'>
-      <Stack spacing={3} m={3} ml={350} mr={350}>
+    <FormControl textAlign='center' minW='100%' minH='100%'>
+      <Flex
+                    direction='column'
+                    align='center'
+                    maxH={{ xl: "1200px" }}
+                    >
+      <Stack spacing={3} m={3} minW='50%' minH='100%'>
         {formData.map((item) => (
           <InputGroup key={item.name}>
             <InputLeftElement
@@ -115,10 +121,12 @@ const Signup = () => {
             />
           </InputGroup>
         ))}
-        <Button boxShadow='md' _active={{ boxShadow: 'lg' }} onClick={handleSignup} >
+        <Button bg='blue.200' boxShadow='md' _active={{ boxShadow: 'lg' }} _hover={{bg: 'green.200'}} onClick={handleSignup} >
           Signup
         </Button>
       </Stack>
+      </Flex>
+      {/* </Flex> */}
       {error && <div>Signup failed, try again!</div>}
     </FormControl>
   );

@@ -6,7 +6,8 @@ import {InputGroup,
 	FormHelperText,
 	Stack,
 	Button,
-  FormErrorMessage
+  FormErrorMessage,
+  Flex
 } from '@chakra-ui/react';
 import { SearchIcon, LockIcon } from '@chakra-ui/icons';
 import { useMutation } from '@apollo/client';
@@ -68,8 +69,13 @@ const Login = () => {
   // }
 
   return (
-    <FormControl textAlign='center' isInvalid={error}>
-      <Stack spacing={3} m={3}>
+    <FormControl textAlign='center' isInvalid={error} minW='100%' minH='100%'>
+      <Flex
+        direction='column'
+        align='center'
+        maxH={{ xl: "1200px" }}
+        >
+      <Stack spacing={3} m={3} minW='50%' minH='100%'>
         <InputGroup>
           <InputLeftElement
             pointerEvents='none'
@@ -108,6 +114,7 @@ const Login = () => {
           </Stack>
         }
       </Stack>
+      </Flex>
     </FormControl>
   );
 };
