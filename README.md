@@ -3,6 +3,7 @@
 
   # Description
   Create a post for you job, gig or service. Job board to advertise work for the modern 'Gig' economy
+  ![Image](https://user-images.githubusercontent.com/86720945/153517402-6923104c-b035-4635-a79f-4846856ca3a2.png)
 
   ## Table of Contents
   * [Installation](#installation)
@@ -16,7 +17,7 @@
 
   # Installation
   * just visit: https://gregs-list-1.herokuapp.com/
-  
+
 
   # Usage
   Sign on and begin posting!
